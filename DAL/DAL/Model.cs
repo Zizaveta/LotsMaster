@@ -46,7 +46,6 @@ namespace DAL
 		public string Photo { get; set; } // тут я не вкурсі як та фотка буде закідатися від клієнта на сервер, а потім по всіх клієнтах
 		public DateTime TimeStart { get; set; }
 		public DateTime TimeFinish { get; set; }
-		public bool IsForAllNow { get; set; } // if (DateTime.Now >TimeStart && DateTime.Now < TimeFinish) return true
 
 		public Person WhoSale { get; set; }
 		public virtual ICollection<LotHistory> History { get; set; }
