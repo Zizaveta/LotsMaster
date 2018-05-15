@@ -4,27 +4,41 @@ namespace DAL
 	using System.Collections.Generic;
 	using System.Data.Entity;
 	using System.Linq;
+	using System.IO;
 
-	public class Model : DbContext
+	public class AuctionContent : DbContext
 	{
-		public Model()
+		public AuctionContent()
 			: base("name=Model")
 		{
 		}
-
-		// public virtual DbSet<MyEntity> MyEntities { get; set; }
+		public virtual DbSet<Person> Persons { get; set; }
+		public virtual DbSet<Lot> Lots { get; set; }
+		public virtual DbSet<LotHistory> History { get; set; }
 	}
 	public class Person
 	{
+		public Person()
+		{
+			Lots = new List<Lot>();
+			Histories = new List<LotHistory>();
+		}
 		public int Id { get; set; }
 		public string FirstName { get; set; }
 		public string SecondName { get; set; }
 		public string Email { get; set; } // буде як логін
 		public string Password { get; set; }
+
+		public virtual ICollection<Lot> Lots { get; set; }
+		public virtual ICollection<LotHistory> Histories { get; set; }
 	}
 
 	public class Lot
 	{
+		public Lot()
+		{
+			History = new List<LotHistory>();
+		}
 		public int Id { get; set; }
 		public string Name { get; set; }
 		public string About { get; set; }
@@ -35,14 +49,27 @@ namespace DAL
 		public bool IsForAllNow { get; set; } // if (DateTime.Now >TimeStart && DateTime.Now < TimeFinish) return true
 
 		public Person WhoSale { get; set; }
-		public Person WhoBuy { get; set; }
 		public virtual ICollection<LotHistory> History { get; set; }
 	}
 
 	public class LotHistory  // без цього не вийде обійтися 
 	{
 		public int Id { get; set; }
+		public Lot Lot { get; set; }
 		public Person Persson { get; set; }
 		public int Money { get; set; }
+	}
+
+
+
+	public class Log  // for exceptions
+	{
+		public static void Logger(string m)
+		{
+			using (StreamWriter s = new StreamWriter(@"D:\Exeptions.txt", true))
+			{
+				s.WriteLine(DateTime.Now + ": " + m);
+			}
+		}
 	}
 }
