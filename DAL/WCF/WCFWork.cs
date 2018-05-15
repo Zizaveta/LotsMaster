@@ -16,9 +16,9 @@ namespace WCF
 		[OperationContract]
 		string Authorization(string email, string password);
 		[OperationContract]
-		string AddLot(Lot lot);
+		string AddLot(string Name, string About, int StartPrice, DateTime Start, DateTime Finish, string Img = null);
 		[OperationContract]
-		string Bet(LotHistory history);
+		string Bet(string lotName, int money);
 		[OperationContract]
 		List<Lot> OldLots();
 		[OperationContract]
@@ -31,9 +31,19 @@ namespace WCF
 	public class AuctionClient : IAuctionClient
 	{
 		public Person person;
-		public string AddLot(Lot lot)
+		public string AddLot(string Name, string About, int StartPrice, DateTime Start, DateTime Finish, string Img = null)
 		{
-			throw new NotImplementedException();
+			if (person == null)
+				return "Authorization!!!";
+			if (StartPrice <= 0)
+				return "Start price must be up 0";
+			if (Finish < Start || Start < DateTime.Now)
+				return "Input true date and time";
+			if (Name.Length == 0 || About.Length == 0)
+				return "Input name and about";
+			if (ClassWork.AddLot(new Lot() { About = About, Name = Name, StartPrice = StartPrice, TimeStart = Start, TimeFinish = Finish, Photo = Img, WhoSale = person }) == true)
+				return "Lot is add";
+			else return "Something wrong";
 		}
 
 		public string AddPerson(string FirstName, string SecondName, string Email, string Password)
@@ -58,9 +68,14 @@ namespace WCF
 			return "Authorization";
 		}
 
-		public string Bet(LotHistory history)
+		public string Bet(string lotName, int money)
 		{
-			throw new NotImplementedException();
+			if (person == null)
+				return "Authorization!!!";
+			if (ClassWork.Bet(person, lotName, money) == true)
+				return "All ok";
+			return "Something wrong";
+				
 		}
 
 		public List<Lot> FutureLots()

@@ -5,6 +5,8 @@ namespace DAL
 	using System.Data.Entity;
 	using System.Linq;
 	using System.IO;
+	using System.ComponentModel.DataAnnotations;
+	using System.ComponentModel.DataAnnotations.Schema;
 
 	public class AuctionContent : DbContext
 	{
@@ -40,6 +42,7 @@ namespace DAL
 			History = new List<LotHistory>();
 		}
 		public int Id { get; set; }
+		[Index(IsUnique = true)]
 		public string Name { get; set; }
 		public string About { get; set; }
 		public int StartPrice { get; set; } // пропоную не гратися з копійками

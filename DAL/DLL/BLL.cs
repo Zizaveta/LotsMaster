@@ -17,6 +17,7 @@ namespace BLL
 					if (db.Persons.FirstOrDefault(elem => elem.Email == person.Email) == null)
 					{
 						db.Persons.Add(person);
+						db.SaveChanges();
 						return true;
 					}
 					return false;
@@ -50,6 +51,7 @@ namespace BLL
 				using (AuctionContent db = new AuctionContent())
 				{
 					db.Lots.Add(lot);
+					db.SaveChanges();
 					return true;
 				}
 			}
@@ -59,13 +61,22 @@ namespace BLL
 				return false;
 			}
 		}
-		public static bool Bet(LotHistory history)
+		public static bool Bet(Person p, string lotName, int money)
 		{
 			try
 			{
 				using (AuctionContent db = new AuctionContent())
 				{
-					db.History.Add(history);
+					if (db.Lots.FirstOrDefault(elem => elem.Name == lotName) == null)
+						return false;
+					if (db.Lots.FirstOrDefault(elem => elem.Name == lotName).History.Last().Money > money)
+						return false;
+					if (db.Lots.FirstOrDefault(elem => elem.Name == lotName).TimeFinish < DateTime.Now)
+						return false;
+					if (db.Lots.FirstOrDefault(elem => elem.Name == lotName).TimeStart > DateTime.Now)
+						return false;
+						db.History.Add(new LotHistory() { Persson = p, Money = money, Lot = db.Lots.FirstOrDefault(elem => elem.Name == lotName) });
+					db.SaveChanges();
 					return true;
 				}
 			}
