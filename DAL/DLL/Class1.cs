@@ -8,7 +8,7 @@ namespace BLL
 {
     public class ClassWork // пропоную тут зробити найпростіші ф-ції, а всю перевірку накатати в WCF
     {
-		public bool AddPerson(Person person)
+		public static bool AddPerson(Person person)
 		{
 			try
 			{
@@ -28,7 +28,7 @@ namespace BLL
 				return false;
 			}
 		}
-		public Person Authorization(string email, string password)
+		public static Person Authorization(string email, string password)
 		{
 			try
 			{
@@ -43,7 +43,7 @@ namespace BLL
 				return null;
 			}
 		}
-		public bool AddLot(Lot lot)
+		public static bool AddLot(Lot lot)
 		{
 			try
 			{
@@ -59,7 +59,7 @@ namespace BLL
 				return false;
 			}
 		}
-		public bool Bet(LotHistory history)
+		public static bool Bet(LotHistory history)
 		{
 			try
 			{
@@ -75,7 +75,7 @@ namespace BLL
 				return false;
 			}
 		}
-		public List<Lot> OldLots()
+		public static List<Lot> OldLots()
 		{
 			try
 			{
@@ -90,7 +90,7 @@ namespace BLL
 				return null;
 			}
 		}
-		public List<Lot> FutureLots()
+		public static List<Lot> FutureLots()
 		{
 			try
 			{
@@ -105,7 +105,7 @@ namespace BLL
 				return null;
 			}
 		}
-		public List<Lot> NowLots()
+		public static List<Lot> NowLots()
 		{
 			try
 			{
