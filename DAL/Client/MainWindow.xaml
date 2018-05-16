@@ -16,6 +16,9 @@
             <Setter Property="Control.Margin" Value="5"></Setter>-->
         <!--
         </Style>-->
+        <Style x:Key="IconElementStyle">
+            <!--<Setter>-->
+        </Style>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -25,7 +28,9 @@
         </Grid.RowDefinitions>
 
         <Grid   Background="#FF427824"  Margin="10,10,10,10">
-            <TextBlock x:Name="NameElement" TextAlignment="Center" VerticalAlignment="Center" FontSize="26" Foreground="White">Old Vasyan</TextBlock>
+            <TextBlock x:Name="NameElement" TextAlignment="Center" VerticalAlignment="Center" FontSize="26" Foreground="White">
+                Чайний набір Річарда II
+            </TextBlock>
         </Grid>
         <!--UpMenu-->
         <Grid Grid.Row="1">
@@ -36,13 +41,25 @@
 
             <!--PlaceForUsers-->
             <Grid Grid.Column="0" Background="#FF8FD169" Margin="10,5,0,5">
+                <!--Icons/IconMan.png-->
+                <StackPanel  Orientation="Horizontal" >
+
+                    <Grid >
+                        <Image Source="Icons/IconMan.png" />
+                        <TextBlock VerticalAlignment="Center" Foreground="Red" FontWeight="Bold" FontSize="20" TextAlignment="Center">225</TextBlock>
+                    </Grid>
+                    <Grid>
+                        <Image Source="Icons/IconGirl.png" />
+                        <TextBlock VerticalAlignment="Center" Foreground="Red" FontWeight="Bold" FontSize="20" TextAlignment="Center">180</TextBlock>
+                    </Grid>
+                </StackPanel>
 
             </Grid>
+
+
             <!--PlaceForTimer-->
             <Grid Grid.Column="1" Margin="10,5,10,5">
-                <TextBlock x:Name="TimeToEndElement" FontSize="30" VerticalAlignment="Stretch" TextAlignment="Center" Foreground="White" Background="#FF539B39" Text="00:32:15">
-
-                </TextBlock>
+                <TextBlock x:Name="TimeToEndElement" FontSize="30" VerticalAlignment="Stretch" TextAlignment="Center" Foreground="White" Background="#FF539B39" Text="00:32:15"/>
             </Grid>
         </Grid>
 
@@ -66,9 +83,8 @@
 
                 <Grid Grid.Row="0" Margin="10,5,10,5"  Background="#FF8FD169" MouseLeftButtonUp="Grid_MouseLeftButtonUp" MouseLeftButtonDown="Grid_MouseLeftButtonDown" >
                     <!--image and info-->
-                    
-                    <Grid x:Name="GridImage" Visibility="Visible"  Margin="10"  >
-                        <!--<TextBlock>Image</TextBlock>-->
+
+                    <Grid  x:Name="GridImage" Visibility="Visible"  Margin="10"  >
                         <Image Source="TempPhotoForTest/Lots4.jpg" />
                     </Grid>
                     <Grid x:Name="GridInfo" Visibility="Hidden" Margin="10"  >
@@ -77,7 +93,7 @@
                             <TextBlock x:Name="GridInfoTextBlock"  TextWrapping="Wrap"  TextAlignment="Center" Margin="3">
                             Набір столових ложок Річарда II. Стан ідеальний. Золото 925 проби.
                             </TextBlock>
-                        
+
                         </ScrollViewer>
                     </Grid>
 
@@ -90,10 +106,10 @@
                     </Grid.RowDefinitions>
 
                     <Grid Grid.Row="0" Margin="20,10,20,5" Background="LightGoldenrodYellow">
-                        <TextBox x:Name="CurrentPrice"></TextBox>
+                        <TextBox x:Name="CurrentPrice"/>
                     </Grid>
                     <Grid Grid.Row="1" Margin="20,5,20,5">
-                        <TextBox KeyDown="TextBox_KeyDown" x:Name="MyCurrentPrice"></TextBox>
+                        <TextBox KeyDown="TextBox_KeyDown" x:Name="MyCurrentPrice"/>
                     </Grid>
 
 
