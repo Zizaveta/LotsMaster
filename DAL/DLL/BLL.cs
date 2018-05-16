@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using Logger;
+using System.Net.Mail;
+
 namespace BLL
 {
     public class ClassWork // пропоную тут зробити найпростіші ф-ції, а всю перевірку накатати в WCF
@@ -62,21 +64,21 @@ namespace BLL
 				return false;
 			}
 		}
-		public static bool Bet(Person p, string lotName, int money)
+		public static bool Bet(Person p, int lotId, int money)
 		{
 			try
 			{
 				using (AuctionContent db = new AuctionContent())
 				{
-					if (db.Lots.FirstOrDefault(elem => elem.LotName == lotName) == null)
+					if (db.Lots.FirstOrDefault(elem => elem.Id == lotId) == null)
 						return false;
-					if (db.Lots.FirstOrDefault(elem => elem.LotName == lotName).History.Last().Money > money)
+					if (db.Lots.FirstOrDefault(elem => elem.Id == lotId).History.Last().Money > money)
 						return false;
-					if (db.Lots.FirstOrDefault(elem => elem.LotName == lotName).TimeFinish < DateTime.Now)
+					if (db.Lots.FirstOrDefault(elem => elem.Id == lotId).TimeFinish < DateTime.Now)
 						return false;
-					if (db.Lots.FirstOrDefault(elem => elem.LotName == lotName).TimeStart > DateTime.Now)
+					if (db.Lots.FirstOrDefault(elem => elem.Id == lotId).TimeStart > DateTime.Now)
 						return false;
-						db.History.Add(new LotHistory() { Persson = p, Money = money, Lot = db.Lots.FirstOrDefault(elem => elem.LotName == lotName) });
+						db.History.Add(new LotHistory() { Persson = p, Money = money, Lot = db.Lots.FirstOrDefault(elem => elem.Id == lotId) });
 					db.SaveChanges();
 					return true;
 				}
@@ -151,16 +153,61 @@ namespace BLL
 				return false;
 			}
 		}
-    }
-
-	class ServiceWork
-	{
-		public void TellForPersonAboutStartLot()
+		public static void SendMessage(Person from, string Thema, string Message, Person to)
 		{
-			using (AuctionContent db = new AuctionContent())
+			try
 			{
-				//foreach(Lot elem in db.Lots.Where())
+				MailMessage m = new MailMessage(new MailAddress(from.Email, from.FirstName + " " + from.SecondName), new MailAddress(to.Email));
+				m.Subject = Thema;
+				m.Body = Message;
+
+
+				SmtpClient smtp = new SmtpClient("aspmx.l.google.com", 25);
+				smtp.EnableSsl = true;
+				smtp.Send(m);
 			}
+			catch (Exception ex)
+			{
+				Log.Logger(ex.Message);
+			}
+		}
+		public static bool ForgetPassword(string email)
+		{
+			try
+			{
+				using (AuctionContent db = new AuctionContent())
+				{
+					ClassWork.SendMessage(new Person() { Email = "miss.elizaveta@gmail.com", FirstName = "Not", SecondName = "Name" }, "ForgetPassword", "Your password: " + db.Persons.First(elem => elem.Email == email).Password, db.Persons.First(elem => elem.Email == email));
+					return true;
+				}
+			}
+			catch(Exception ex)
+			{
+				Log.Logger(ex.Message);
+				return false;
+			}
+		}
+	}
+
+	public class ServiceWork
+	{
+		public  void TellForPersonAboutStartLot()
+		{
+			Task.Run(() =>
+			{
+				using (AuctionContent db = new AuctionContent())
+				{
+					foreach (Lot elem in db.Lots.Where(elem => elem.TellPersonsAboutStart != null && elem.TimeStart >= DateTime.Now))
+					{
+						foreach (Person p in elem.TellPersonsAboutStart)
+						{
+							ClassWork.SendMessage(new Person() { Email = "miss.elizaveta@gmail.com", FirstName = "Not ", SecondName = "Empty" }, "Lot is start", "We want to tell you about start lot  " + elem.LotName + "Now", p);
+						}
+						elem.TellPersonsAboutStart = null;
+					}
+					db.SaveChanges();
+				}
+			});
 		}
 	}
 }
