@@ -20,7 +20,7 @@ namespace WCF
 		[OperationContract]
 		string AddLot(string Name, string About, int StartPrice, DateTime Start, DateTime Finish, string Img = null);
 		[OperationContract]
-		string Bet(string lotName, int money);
+		string Bet(int lotId, int money);
 		[OperationContract]
 		List<Lot> OldLots();
 		[OperationContract]
@@ -77,11 +77,11 @@ namespace WCF
 			return "Authorization";
 		}
 
-		public string Bet(string lotName, int money)
+		public string Bet(int lotId, int money)
 		{
 			if (person == null)
 				return "Authorization!!!";
-			if (ClassWork.Bet(person, lotName, money) == true)
+			if (ClassWork.Bet(person, lotId, money) == true)
 				return "All ok";
 			return "Something wrong";
 				
@@ -104,21 +104,7 @@ namespace WCF
 
 		public void SendMessage(string Thema, string Message, Person to)
 		{
-			try
-			{
-				MailMessage m = new MailMessage(new MailAddress(person.Email, person.FirstName + " " + person.SecondName), new MailAddress(to.Email));
-				m.Subject = Thema;
-				m.Body = Message;
-
-
-				SmtpClient smtp = new SmtpClient("aspmx.l.google.com", 25);
-				smtp.EnableSsl = true;
-				smtp.Send(m);
-			}
-			catch (Exception ex)
-			{
-				Log.Logger(ex.Message);
-			}
+			ClassWork.SendMessage(person, Thema, Message, to);
 		}
 
 		public string TellMeAboutStartLot(string LotName)
