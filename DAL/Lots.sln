@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF", "WCF\WCF.csproj", "{9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsService", "WindowsService\WindowsService.csproj", "{A659BF56-4F8A-4615-B6CB-23441339D936}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{2F730582-040D-4EAF-9CC9-D2303D7518D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A659BF56-4F8A-4615-B6CB-23441339D936}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A659BF56-4F8A-4615-B6CB-23441339D936}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A659BF56-4F8A-4615-B6CB-23441339D936}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F730582-040D-4EAF-9CC9-D2303D7518D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F730582-040D-4EAF-9CC9-D2303D7518D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F730582-040D-4EAF-9CC9-D2303D7518D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F730582-040D-4EAF-9CC9-D2303D7518D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,54 @@
+﻿<Window x:Class="Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="77*" />
+            <RowDefinition Height="243*" />
+        </Grid.RowDefinitions>
+
+        <!--UpMenu-->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="336*" />
+                <ColumnDefinition Width="181*" />
+            </Grid.ColumnDefinitions>
+
+            <!--PlaceForUsers-->
+            <Grid Grid.Column="0" Background="Aqua">
+
+            </Grid>
+            <!--PlaceForTimer-->
+            <Grid Grid.Column="1" Margin="10">
+                <TextBlock Background="Orange" Text="00:32:15"> 
+                    
+                </TextBlock>
+            </Grid>
+        </Grid>
+
+        <!--DownPart-->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*" />
+                <ColumnDefinition Width="4*" />
+            </Grid.ColumnDefinitions>
+
+            <!--PlaceForLog-->
+            <Grid Grid.Column="0">
+
+            </Grid>
+            <!--PlaceForBusiness-->
+            <Grid Grid.Column="1">
+
+            </Grid>
+
+
+        </Grid>
+
+    </Grid>
+</Window>
