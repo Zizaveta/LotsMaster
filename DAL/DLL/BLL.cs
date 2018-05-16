@@ -76,7 +76,7 @@ namespace BLL
 						return false;
 					if (db.Lots.FirstOrDefault(elem => elem.LotName == lotName).TimeStart > DateTime.Now)
 						return false;
-						db.History.Add(new LotHistory() { Persson = p, Money = money, Lot = db.Lots.FirstOrDefault(elem => elem.Name == lotName) });
+						db.History.Add(new LotHistory() { Persson = p, Money = money, Lot = db.Lots.FirstOrDefault(elem => elem.LotName == lotName) });
 					db.SaveChanges();
 					return true;
 				}
