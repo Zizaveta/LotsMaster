@@ -24,21 +24,21 @@ namespace Client
         public MainWindow()
         {
             InitializeComponent();
+            //GridInfoTextBlock.Width = GridInfo.ActualWidth;
             Client = new AuctionClientClient();
             //Client.NowLots().Last().History.Last().Money;
         }
 
         private void Grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            GridImage.Visibility = Visibility.Hidden;
-            GridInfo.Visibility = Visibility.Visible;
-
+            GridImage.Visibility = Visibility.Visible;
+            GridInfo.Visibility = Visibility.Hidden;
         }
 
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            GridImage.Visibility = Visibility.Visible;
-            GridInfo.Visibility = Visibility.Hidden;
+            GridImage.Visibility = Visibility.Hidden;
+            GridInfo.Visibility = Visibility.Visible;
         }
 
         private void TextBox_KeyDown(object sender, KeyEventArgs e)

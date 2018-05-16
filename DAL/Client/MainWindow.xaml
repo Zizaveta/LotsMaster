@@ -6,6 +6,17 @@
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
         Title="MainWindow" Height="380" Width="525">
+    <Window.Resources>
+        <!--<Style x:Key="LogElementStyle">
+            <Setter Property="Control.FontFamily" Value="Calibri"></Setter>
+            <Setter Property="Control.FontSize" Value="18"></Setter>
+            -->
+        <!--<Setter Property="Control.FontWeight" Value="Bold"></Setter>-->
+        <!--<Setter Property="Control.Padding" Value="5"></Setter>
+            <Setter Property="Control.Margin" Value="5"></Setter>-->
+        <!--
+        </Style>-->
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="32*" />
@@ -13,23 +24,23 @@
             <RowDefinition Height="115*" />
         </Grid.RowDefinitions>
 
-        <Grid Background="Indigo" Margin="2,10,2,10">
-            <TextBlock>Old Vasyan</TextBlock>
+        <Grid   Background="#FF427824"  Margin="10,10,10,10">
+            <TextBlock x:Name="NameElement" TextAlignment="Center" VerticalAlignment="Center" FontSize="26" Foreground="White">Old Vasyan</TextBlock>
         </Grid>
-            <!--UpMenu-->
+        <!--UpMenu-->
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="336*" />
-                <ColumnDefinition Width="181*" />
+                <ColumnDefinition Width="7*" />
+                <ColumnDefinition Width="4*" />
             </Grid.ColumnDefinitions>
 
             <!--PlaceForUsers-->
-            <Grid Grid.Column="0" Background="Aqua" Margin="5">
+            <Grid Grid.Column="0" Background="#FF8FD169" Margin="10,5,0,5">
 
             </Grid>
             <!--PlaceForTimer-->
             <Grid Grid.Column="1" Margin="10,5,10,5">
-                <TextBlock Background="Orange" Text="00:32:15">
+                <TextBlock x:Name="TimeToEndElement" FontSize="30" VerticalAlignment="Stretch" TextAlignment="Center" Foreground="White" Background="#FF539B39" Text="00:32:15">
 
                 </TextBlock>
             </Grid>
@@ -43,10 +54,8 @@
             </Grid.ColumnDefinitions>
 
             <!--PlaceForLog-->
-            <Grid Grid.Column="0" Margin="10">
-                <TextBlock Background="IndianRed" Text="Bob 15$">
-
-                </TextBlock>
+            <Grid Grid.Column="0" Margin="10,10,0,10">
+                <TextBlock  Background="#FF8FD169" Foreground="White" FontSize="18" Text="Bob 15$" FontWeight="Bold" TextDecorations="{x:Null}"/>
             </Grid>
             <!--PlaceForBusiness-->
             <Grid Grid.Column="1">
@@ -55,18 +64,26 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
 
-                <Grid Grid.Row="0" Background="HotPink" MouseLeftButtonUp="Grid_MouseLeftButtonUp" MouseLeftButtonDown="Grid_MouseLeftButtonDown" >
+                <Grid Grid.Row="0" Margin="10,5,10,5"  Background="#FF8FD169" MouseLeftButtonUp="Grid_MouseLeftButtonUp" MouseLeftButtonDown="Grid_MouseLeftButtonDown" >
                     <!--image and info-->
-                    <Grid x:Name="GridImage" Visibility="Visible"  Margin="10" Background="White" >
-                        <TextBlock>Image</TextBlock>
+                    
+                    <Grid x:Name="GridImage" Visibility="Visible"  Margin="10"  >
+                        <!--<TextBlock>Image</TextBlock>-->
+                        <Image Source="TempPhotoForTest/Lots4.jpg" />
                     </Grid>
-                    <Grid x:Name="GridInfo" Visibility="Hidden" Margin="10" Background="White" >
-                        <TextBlock>Info</TextBlock>
+                    <Grid x:Name="GridInfo" Visibility="Hidden" Margin="10"  >
+                        <ScrollViewer  VerticalScrollBarVisibility="Auto">
+
+                            <TextBlock x:Name="GridInfoTextBlock"  TextWrapping="Wrap"  TextAlignment="Center" Margin="3">
+                            Набір столових ложок Річарда II. Стан ідеальний. Золото 925 проби.
+                            </TextBlock>
+                        
+                        </ScrollViewer>
                     </Grid>
 
                 </Grid>
                 <!--Money-->
-                <Grid Grid.Row="1" Background="YellowGreen" Margin="5">
+                <Grid Grid.Row="1" Margin="10,5,10,5" Background="YellowGreen">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*" />
                         <RowDefinition Height="1*" />
