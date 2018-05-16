@@ -45,8 +45,18 @@ namespace Client
         {
             if (e.Key == Key.Enter)
             {
-                MessageBox.Show("1234123");
-               // if(Client.NowLots().Last().History.Last().Money< Convert.ToInt32(MyCurrentPrice.Text))
+                int tempCountMoney = Convert.ToInt32(MyCurrentPrice.Text);
+                if (Convert.ToInt32(CurrentPrice.Text) < tempCountMoney)
+                //if (Client.NowLots().Last().History.Last().Money < tempCountMoney)
+                {
+                    //Треба переаисати на Ід
+                    //Client.Bet(Client.NowLots().Last().History.Last().Lot.Id, Convert.ToInt32(MyCurrentPrice.Text));
+                    {
+                        CurrentPrice.Text = tempCountMoney.ToString();
+                    }
+                }
+                else
+                MessageBox.Show("<");
             }
         }
     }
