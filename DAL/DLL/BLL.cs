@@ -68,13 +68,13 @@ namespace BLL
 			{
 				using (AuctionContent db = new AuctionContent())
 				{
-					if (db.Lots.FirstOrDefault(elem => elem.Name == lotName) == null)
+					if (db.Lots.FirstOrDefault(elem => elem.LotName == lotName) == null)
 						return false;
-					if (db.Lots.FirstOrDefault(elem => elem.Name == lotName).History.Last().Money > money)
+					if (db.Lots.FirstOrDefault(elem => elem.LotName == lotName).History.Last().Money > money)
 						return false;
-					if (db.Lots.FirstOrDefault(elem => elem.Name == lotName).TimeFinish < DateTime.Now)
+					if (db.Lots.FirstOrDefault(elem => elem.LotName == lotName).TimeFinish < DateTime.Now)
 						return false;
-					if (db.Lots.FirstOrDefault(elem => elem.Name == lotName).TimeStart > DateTime.Now)
+					if (db.Lots.FirstOrDefault(elem => elem.LotName == lotName).TimeStart > DateTime.Now)
 						return false;
 						db.History.Add(new LotHistory() { Persson = p, Money = money, Lot = db.Lots.FirstOrDefault(elem => elem.Name == lotName) });
 					db.SaveChanges();

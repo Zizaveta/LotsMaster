@@ -45,7 +45,7 @@ namespace DAL
 		}
 		public int Id { get; set; }
 		[Index(IsUnique = true)]
-		public string Name { get; set; }
+		public string LotName { get; set; }
 		public string About { get; set; }
 		public int StartPrice { get; set; } // пропоную не гратися з копійками
 		public string Photo { get; set; } // тут я не вкурсі як та фотка буде закідатися від клієнта на сервер, а потім по всіх клієнтах
