@@ -5,45 +5,83 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="380" Width="525">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="77*" />
-            <RowDefinition Height="243*" />
+            <RowDefinition Height="32*" />
+            <RowDefinition Height="28*" />
+            <RowDefinition Height="115*" />
         </Grid.RowDefinitions>
 
-        <!--UpMenu-->
-        <Grid Grid.Row="0">
+        <Grid Background="Indigo" Margin="2,10,2,10">
+            <TextBlock>Old Vasyan</TextBlock>
+        </Grid>
+            <!--UpMenu-->
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="336*" />
                 <ColumnDefinition Width="181*" />
             </Grid.ColumnDefinitions>
 
             <!--PlaceForUsers-->
-            <Grid Grid.Column="0" Background="Aqua">
+            <Grid Grid.Column="0" Background="Aqua" Margin="5">
 
             </Grid>
             <!--PlaceForTimer-->
-            <Grid Grid.Column="1" Margin="10">
-                <TextBlock Background="Orange" Text="00:32:15"> 
-                    
+            <Grid Grid.Column="1" Margin="10,5,10,5">
+                <TextBlock Background="Orange" Text="00:32:15">
+
                 </TextBlock>
             </Grid>
         </Grid>
 
         <!--DownPart-->
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="7*" />
                 <ColumnDefinition Width="4*" />
             </Grid.ColumnDefinitions>
 
             <!--PlaceForLog-->
-            <Grid Grid.Column="0">
+            <Grid Grid.Column="0" Margin="10">
+                <TextBlock Background="IndianRed" Text="Bob 15$">
 
+                </TextBlock>
             </Grid>
             <!--PlaceForBusiness-->
             <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Background="HotPink" MouseLeftButtonUp="Grid_MouseLeftButtonUp" MouseLeftButtonDown="Grid_MouseLeftButtonDown" >
+                    <!--image and info-->
+                    <Grid x:Name="GridImage" Visibility="Visible"  Margin="10" Background="White" >
+                        <TextBlock>Image</TextBlock>
+                    </Grid>
+                    <Grid x:Name="GridInfo" Visibility="Hidden" Margin="10" Background="White" >
+                        <TextBlock>Info</TextBlock>
+                    </Grid>
+
+                </Grid>
+                <!--Money-->
+                <Grid Grid.Row="1" Background="YellowGreen" Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*" />
+                        <RowDefinition Height="1*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Margin="20,10,20,5" Background="LightGoldenrodYellow">
+                        <TextBox ></TextBox>
+                    </Grid>
+                    <Grid Grid.Row="1" Margin="20,5,20,5">
+                        <TextBox ></TextBox>
+                    </Grid>
+
+
+                </Grid>
+
 
             </Grid>
 

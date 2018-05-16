@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Client.ServiceReference1;
 namespace Client
 {
     /// <summary>
@@ -20,9 +20,25 @@ namespace Client
     /// </summary>
     public partial class MainWindow : Window
     {
+        AuctionClientClient Client;
         public MainWindow()
         {
             InitializeComponent();
+            Client = new AuctionClientClient();
+            
+        }
+
+        private void Grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            GridImage.Visibility = Visibility.Hidden;
+            GridInfo.Visibility = Visibility.Visible;
+
+        }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            GridImage.Visibility = Visibility.Visible;
+            GridInfo.Visibility = Visibility.Hidden;
         }
     }
 }
