@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsService", "WindowsSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{2F730582-040D-4EAF-9CC9-D2303D7518D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger", "Logger\Logger.csproj", "{67D7ACFB-B1FE-433A-AF72-5A09CFC9FE16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{2F730582-040D-4EAF-9CC9-D2303D7518D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F730582-040D-4EAF-9CC9-D2303D7518D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F730582-040D-4EAF-9CC9-D2303D7518D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67D7ACFB-B1FE-433A-AF72-5A09CFC9FE16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67D7ACFB-B1FE-433A-AF72-5A09CFC9FE16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67D7ACFB-B1FE-433A-AF72-5A09CFC9FE16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67D7ACFB-B1FE-433A-AF72-5A09CFC9FE16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
