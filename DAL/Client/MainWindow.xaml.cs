@@ -25,7 +25,7 @@ namespace Client
         {
             InitializeComponent();
             Client = new AuctionClientClient();
-            
+            //Client.NowLots().Last().History.Last().Money;
         }
 
         private void Grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -39,6 +39,15 @@ namespace Client
         {
             GridImage.Visibility = Visibility.Visible;
             GridInfo.Visibility = Visibility.Hidden;
+        }
+
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                MessageBox.Show("1234123");
+               // if(Client.NowLots().Last().History.Last().Money< Convert.ToInt32(MyCurrentPrice.Text))
+            }
         }
     }
 }
