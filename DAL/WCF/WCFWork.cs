@@ -31,6 +31,8 @@ namespace WCF
 		string TellMeAboutStartLot(string LotName);
 		[OperationContract]
 		void SendMessage(string Thema, string Message, Person to);
+		[OperationContract]
+		void ForgetPassword(string email);
 	}
 
 
@@ -85,6 +87,11 @@ namespace WCF
 				return "All ok";
 			return "Something wrong";
 				
+		}
+
+		public void ForgetPassword(string email)
+		{
+			ClassWork.ForgetPassword(email);
 		}
 
 		public List<Lot> FutureLots()

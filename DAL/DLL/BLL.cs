@@ -171,9 +171,25 @@ namespace BLL
 				Log.Logger(ex.Message);
 			}
 		}
+		public static bool ForgetPassword(string email)
+		{
+			try
+			{
+				using (AuctionContent db = new AuctionContent())
+				{
+					ClassWork.SendMessage(new Person() { Email = "miss.elizaveta@gmail.com", FirstName = "Not", SecondName = "Name" }, "ForgetPassword", "Your password: " + db.Persons.First(elem => elem.Email == email).Password, db.Persons.First(elem => elem.Email == email));
+					return true;
+				}
+			}
+			catch(Exception ex)
+			{
+				Log.Logger(ex.Message);
+				return false;
+			}
+		}
 	}
 
-	class ServiceWork
+	public class ServiceWork
 	{
 		public  void TellForPersonAboutStartLot()
 		{
