@@ -132,5 +132,35 @@ namespace BLL
 				return null;
 			}
 		}
+		public static bool TellMeAboutStartLot(Person person, string lot)
+		{
+			try
+			{
+				using (AuctionContent db = new AuctionContent())
+				{
+					if (db.Lots.First(elem => elem.LotName == lot).TimeStart <= DateTime.Now)
+						return false;
+					db.Lots.First(elem => elem.LotName == lot).TellPersonsAboutStart.Add(person);
+					db.SaveChanges();
+					return true;
+				}
+			}
+			catch(Exception ex)
+			{
+				Log.Logger(ex.Message);
+				return false;
+			}
+		}
     }
+
+	class ServiceWork
+	{
+		public void TellForPersonAboutStartLot()
+		{
+			using (AuctionContent db = new AuctionContent())
+			{
+				//foreach(Lot elem in db.Lots.Where())
+			}
+		}
+	}
 }

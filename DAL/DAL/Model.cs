@@ -42,6 +42,7 @@ namespace DAL
 		public Lot()
 		{
 			History = new List<LotHistory>();
+			TellPersonsAboutStart = new List<Person>();
 		}
 		public int Id { get; set; }
 		[Index(IsUnique = true)]
@@ -54,6 +55,8 @@ namespace DAL
 
 		public Person WhoSale { get; set; }
 		public virtual ICollection<LotHistory> History { get; set; }
+
+		public virtual ICollection<Person> TellPersonsAboutStart { get; set; }
 	}
 
 	public class LotHistory  // בוח צüמדמ םו גטיהו מב³יעטסÿ 

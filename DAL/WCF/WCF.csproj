@@ -53,6 +53,10 @@
       <Project>{4e3e4aaf-229a-4c04-9d35-f9c579ed4f0c}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Logger\Logger.csproj">
+      <Project>{67d7acfb-b1fe-433a-af72-5a09cfc9fe16}</Project>
+      <Name>Logger</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

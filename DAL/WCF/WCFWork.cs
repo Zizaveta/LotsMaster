@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.ServiceModel;
 using DAL;
 using BLL;
+using System.Net.Mail;
+using Logger;
 namespace WCF
 {
 	[ServiceContract]
@@ -25,12 +27,19 @@ namespace WCF
 		List<Lot> FutureLots();
 		[OperationContract]
 		List<Lot> NowLots();
+		[OperationContract]
+		string TellMeAboutStartLot(string LotName);
+		[OperationContract]
+		void SendMessage(string Thema, string Message, Person to);
 	}
+
+
 
 	[ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
 	public class AuctionClient : IAuctionClient
 	{
 		public Person person;
+
 		public string AddLot(string Name, string About, int StartPrice, DateTime Start, DateTime Finish, string Img = null)
 		{
 			if (person == null)
@@ -91,6 +100,32 @@ namespace WCF
 		public List<Lot> OldLots()
 		{
 			return ClassWork.OldLots();
+		}
+
+		public void SendMessage(string Thema, string Message, Person to)
+		{
+			try
+			{
+				MailMessage m = new MailMessage(new MailAddress(person.Email, person.FirstName + " " + person.SecondName), new MailAddress(to.Email));
+				m.Subject = Thema;
+				m.Body = Message;
+
+
+				SmtpClient smtp = new SmtpClient("aspmx.l.google.com", 25);
+				smtp.EnableSsl = true;
+				smtp.Send(m);
+			}
+			catch (Exception ex)
+			{
+				Log.Logger(ex.Message);
+			}
+		}
+
+		public string TellMeAboutStartLot(string LotName)
+		{
+			if (ClassWork.TellMeAboutStartLot(person, LotName) == true)
+				return "All ok";
+			return "Somethimg wrong";
 		}
 	}
 }
