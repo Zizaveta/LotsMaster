@@ -193,17 +193,21 @@ namespace BLL
 	{
 		public  void TellForPersonAboutStartLot()
 		{
-			using (AuctionContent db = new AuctionContent())
+			Task.Run(() =>
 			{
-				foreach(Lot elem in db.Lots.Where(elem => elem.TellPersonsAboutStart != null && elem.TimeStart>= DateTime.Now))
+				using (AuctionContent db = new AuctionContent())
 				{
-					foreach(Person p in elem.TellPersonsAboutStart)
+					foreach (Lot elem in db.Lots.Where(elem => elem.TellPersonsAboutStart != null && elem.TimeStart >= DateTime.Now))
 					{
-						ClassWork.SendMessage(new Person() { Email = "miss.elizaveta@gmail.com", FirstName = "Not ", SecondName = "Empty" }, "Lot is start", "We want to tell you about start lot  " + elem.LotName + "Now", p);
+						foreach (Person p in elem.TellPersonsAboutStart)
+						{
+							ClassWork.SendMessage(new Person() { Email = "miss.elizaveta@gmail.com", FirstName = "Not ", SecondName = "Empty" }, "Lot is start", "We want to tell you about start lot  " + elem.LotName + "Now", p);
+						}
+						elem.TellPersonsAboutStart = null;
 					}
-					elem.TellPersonsAboutStart = null;
+					db.SaveChanges();
 				}
-			}
+			});
 		}
 	}
 }
