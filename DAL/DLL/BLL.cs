@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
+using Logger;
 namespace BLL
 {
     public class ClassWork // пропоную тут зробити найпростіші ф-ції, а всю перевірку накатати в WCF

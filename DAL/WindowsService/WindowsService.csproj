@@ -74,6 +74,10 @@
       <Project>{4e3e4aaf-229a-4c04-9d35-f9c579ed4f0c}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Logger\Logger.csproj">
+      <Project>{67d7acfb-b1fe-433a-af72-5a09cfc9fe16}</Project>
+      <Name>Logger</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WCF\WCF.csproj">
       <Project>{9fcfd340-7ec0-42b2-bfe9-9ac942770d17}</Project>
       <Name>WCF</Name>

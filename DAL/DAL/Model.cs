@@ -18,8 +18,6 @@ namespace DAL
 		public virtual DbSet<Lot> Lots { get; set; }
 		public virtual DbSet<LotHistory> History { get; set; }
 	}
-	[Flags]
-	enum Gender { Male, Female};
 	public class Person
 	{
 		public Person()
@@ -30,7 +28,7 @@ namespace DAL
 		public int Id { get; set; }
 		public string FirstName { get; set; }
 		public string SecondName { get; set; }
-		public Gender Sex { get; set; }
+		public bool Gender { get; set; }
 		public string Image { get; set; }
 		public string Email { get; set; } // буде як логін
 		public string Password { get; set; }
