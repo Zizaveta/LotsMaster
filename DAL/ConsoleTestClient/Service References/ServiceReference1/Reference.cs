@@ -515,10 +515,10 @@ namespace ConsoleTestClient.ServiceReference1 {
         System.Threading.Tasks.Task<ConsoleTestClient.ServiceReference1.Lot[]> NowLotsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/TellMeAboutStartLot", ReplyAction="http://tempuri.org/IAuctionClient/TellMeAboutStartLotResponse")]
-        string TellMeAboutStartLot(string LotName);
+        string TellMeAboutStartLot(int LotId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/TellMeAboutStartLot", ReplyAction="http://tempuri.org/IAuctionClient/TellMeAboutStartLotResponse")]
-        System.Threading.Tasks.Task<string> TellMeAboutStartLotAsync(string LotName);
+        System.Threading.Tasks.Task<string> TellMeAboutStartLotAsync(int LotId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/SendMessage", ReplyAction="http://tempuri.org/IAuctionClient/SendMessageResponse")]
         void SendMessage(string Thema, string Message, ConsoleTestClient.ServiceReference1.Person to);
@@ -531,6 +531,18 @@ namespace ConsoleTestClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/ForgetPassword", ReplyAction="http://tempuri.org/IAuctionClient/ForgetPasswordResponse")]
         System.Threading.Tasks.Task ForgetPasswordAsync(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/LotHistory", ReplyAction="http://tempuri.org/IAuctionClient/LotHistoryResponse")]
+        string LotHistory(int LotId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/LotHistory", ReplyAction="http://tempuri.org/IAuctionClient/LotHistoryResponse")]
+        System.Threading.Tasks.Task<string> LotHistoryAsync(int LotId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/LastBet", ReplyAction="http://tempuri.org/IAuctionClient/LastBetResponse")]
+        int LastBet(int LotId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/LastBet", ReplyAction="http://tempuri.org/IAuctionClient/LastBetResponse")]
+        System.Threading.Tasks.Task<int> LastBetAsync(int LotId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -616,12 +628,12 @@ namespace ConsoleTestClient.ServiceReference1 {
             return base.Channel.NowLotsAsync();
         }
         
-        public string TellMeAboutStartLot(string LotName) {
-            return base.Channel.TellMeAboutStartLot(LotName);
+        public string TellMeAboutStartLot(int LotId) {
+            return base.Channel.TellMeAboutStartLot(LotId);
         }
         
-        public System.Threading.Tasks.Task<string> TellMeAboutStartLotAsync(string LotName) {
-            return base.Channel.TellMeAboutStartLotAsync(LotName);
+        public System.Threading.Tasks.Task<string> TellMeAboutStartLotAsync(int LotId) {
+            return base.Channel.TellMeAboutStartLotAsync(LotId);
         }
         
         public void SendMessage(string Thema, string Message, ConsoleTestClient.ServiceReference1.Person to) {
@@ -638,6 +650,22 @@ namespace ConsoleTestClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task ForgetPasswordAsync(string email) {
             return base.Channel.ForgetPasswordAsync(email);
+        }
+        
+        public string LotHistory(int LotId) {
+            return base.Channel.LotHistory(LotId);
+        }
+        
+        public System.Threading.Tasks.Task<string> LotHistoryAsync(int LotId) {
+            return base.Channel.LotHistoryAsync(LotId);
+        }
+        
+        public int LastBet(int LotId) {
+            return base.Channel.LastBet(LotId);
+        }
+        
+        public System.Threading.Tasks.Task<int> LastBetAsync(int LotId) {
+            return base.Channel.LastBetAsync(LotId);
         }
     }
 }

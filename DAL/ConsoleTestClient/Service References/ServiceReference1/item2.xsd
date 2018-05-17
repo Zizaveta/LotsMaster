@@ -106,7 +106,7 @@
   <xs:element name="TellMeAboutStartLot">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="LotName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="LotId" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -141,6 +141,34 @@
   <xs:element name="ForgetPasswordResponse">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LotHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LotId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LotHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LotHistoryResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LastBet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LotId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LastBetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LastBetResult" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
 </xs:schema>

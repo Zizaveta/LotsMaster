@@ -134,16 +134,19 @@ namespace BLL
 				return null;
 			}
 		}
-		public static bool TellMeAboutStartLot(Person person, string lot)
+		public static bool TellMeAboutStartLot(Person person, int lotId)
 		{
 			try
 			{
 				using (AuctionContent db = new AuctionContent())
 				{
-					if (db.Lots.First(elem => elem.LotName == lot).TimeStart <= DateTime.Now)
+					if (db.Lots.First(elem => elem.Id == lotId).TimeStart <= DateTime.Now)
 						return false;
-					db.Lots.First(elem => elem.LotName == lot).TellPersonsAboutStart.Add(person);
-					db.SaveChanges();
+					if (db.Lots.First(elem => elem.Id == lotId).TellPersonsAboutStart.Contains(person) == false)
+					{
+						db.Lots.First(elem => elem.Id == lotId).TellPersonsAboutStart.Add(person);
+						db.SaveChanges();
+					}
 					return true;
 				}
 			}
@@ -206,6 +209,21 @@ namespace BLL
 			{
 				Log.Logger(ex.Message);
 				return "";
+			}
+		}
+		public static int LastBet(int LotId)
+		{
+			try
+			{
+				using (AuctionContent db = new AuctionContent())
+				{
+					return db.Lots.First(elem => elem.Id == LotId).History.Last().Money;
+				}
+			}
+			catch(Exception ex)
+			{
+				Log.Logger(ex.Message);
+				return 0;
 			}
 		}
 	}

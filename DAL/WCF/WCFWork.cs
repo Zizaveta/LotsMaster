@@ -28,13 +28,15 @@ namespace WCF
 		[OperationContract]
 		List<Lot> NowLots();
 		[OperationContract]
-		string TellMeAboutStartLot(string LotName);
+		string TellMeAboutStartLot(int LotId);
 		[OperationContract]
 		void SendMessage(string Thema, string Message, Person to);
 		[OperationContract]
 		void ForgetPassword(string email);
 		[OperationContract]
 		string LotHistory(int LotId);
+		[OperationContract]
+		int LastBet(int LotId);
 	}
 
 
@@ -139,11 +141,16 @@ namespace WCF
 			ClassWork.SendMessage(person, Thema, Message, to);
 		}
 
-		public string TellMeAboutStartLot(string LotName)
+		public string TellMeAboutStartLot(int LotId)
 		{
-			if (ClassWork.TellMeAboutStartLot(person, LotName) == true)
+			if (ClassWork.TellMeAboutStartLot(person, LotId) == true)
 				return "All ok";
 			return "Somethimg wrong";
+		}
+
+		public int LastBet(int LotId)
+		{
+			return ClassWork.LastBet(LotId);
 		}
 	}
 }

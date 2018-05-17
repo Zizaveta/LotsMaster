@@ -67,6 +67,18 @@
   <wsdl:message name="IAuctionClient_ForgetPassword_OutputMessage">
     <wsdl:part name="parameters" element="tns:ForgetPasswordResponse" />
   </wsdl:message>
+  <wsdl:message name="IAuctionClient_LotHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:LotHistory" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_LotHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LotHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_LastBet_InputMessage">
+    <wsdl:part name="parameters" element="tns:LastBet" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_LastBet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LastBetResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAuctionClient">
     <wsdl:operation name="AddPerson">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuctionClient/AddPerson" message="tns:IAuctionClient_AddPerson_InputMessage" />
@@ -107,6 +119,14 @@
     <wsdl:operation name="ForgetPassword">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuctionClient/ForgetPassword" message="tns:IAuctionClient_ForgetPassword_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAuctionClient/ForgetPasswordResponse" message="tns:IAuctionClient_ForgetPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LotHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionClient/LotHistory" message="tns:IAuctionClient_LotHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionClient/LotHistoryResponse" message="tns:IAuctionClient_LotHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LastBet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionClient/LastBet" message="tns:IAuctionClient_LastBet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionClient/LastBetResponse" message="tns:IAuctionClient_LastBet_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAuctionClient" type="tns:IAuctionClient">
@@ -194,6 +214,24 @@
     </wsdl:operation>
     <wsdl:operation name="ForgetPassword">
       <soap:operation soapAction="http://tempuri.org/IAuctionClient/ForgetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LotHistory">
+      <soap:operation soapAction="http://tempuri.org/IAuctionClient/LotHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LastBet">
+      <soap:operation soapAction="http://tempuri.org/IAuctionClient/LastBet" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
