@@ -1,11 +1,11 @@
-﻿<Window x:Class="Autorization.MainWindow"
+﻿<Window x:Class="Registration.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Autorization"
+        xmlns:local="clr-namespace:Registration"
         mc:Ignorable="d"
-        Title="MainWindow" Height="380" Width="525">
+        Title="Registration" Height="380" Width="525">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -13,7 +13,7 @@
                 <GradientStop Color="#FF8DA4DD"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Grid Margin="50,89,50,11">
+        <Grid Margin="50,66,50,34">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="200"></RowDefinition>
@@ -27,15 +27,16 @@
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
                             <TextBox x:Name="Name" TextAlignment="Center" FontSize="23" Height="40" Text="Name" HorizontalAlignment="Center" VerticalAlignment="Top" Width="357" FontStyle="Italic" FontWeight="Bold" Margin="30,4,30,0"></TextBox>
-                            <TextBox x:Name="Email" TextAlignment="Center" FontSize="23" Text="E-mail"  Margin="30,55,30,5" FontStyle="Italic" FontWeight="Bold"></TextBox>
+                            <TextBox x:Name="Surname" TextAlignment="Center" FontSize="23" Text="Surname"  Margin="30,55,30,5" FontStyle="Italic" FontWeight="Bold"></TextBox>
                         </Grid>
                         <Grid Grid.Row="1">
-                            <TextBox x:Name="Password" Text="Password" TextAlignment="Center" FontSize="23" Margin="30,5,30,55" FontStyle="Italic" FontWeight="Bold"></TextBox>
-                            <Label x:Name="label" Foreground="Blue" Content="Forgot your password?" HorizontalAlignment="Left" Height="25" Margin="256,41,0,0" VerticalAlignment="Top" Width="131" FontStyle="Italic"/>
+                            <TextBox x:Name="Email" Text="E-mail" TextAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="23" Margin="30,5,30,0" FontStyle="Italic" FontWeight="Bold" Width="357"></TextBox>
+                            <TextBox x:Name="Password" Text="Password" TextAlignment="Center" FontSize="23" Margin="30,51,30,9" FontStyle="Italic" FontWeight="Bold"></TextBox>
+                            <Label x:Name="label" Foreground="Blue" Content="Forgot your password?" HorizontalAlignment="Left" Height="25" Margin="256,84,0,-9" VerticalAlignment="Top" Width="131" FontStyle="Italic"/>
                         </Grid>
                     </Grid>
                 </Grid>
-                <Label x:Name="label1" Foreground="Blue" Content="Sign in" HorizontalAlignment="Left" Height="25" Margin="200,141,0,0" VerticalAlignment="Top" Width="53" FontStyle="Oblique"/>
+                <Label x:Name="label1" Foreground="Blue" Content="Sign in" HorizontalAlignment="Left" Height="25" Margin="200,184,0,0" VerticalAlignment="Top" Width="53" FontStyle="Oblique" Grid.RowSpan="2" MouseLeftButtonDown="label1_MouseLeftButtonDown"/>
             </Grid>
         </Grid>
     </Grid>

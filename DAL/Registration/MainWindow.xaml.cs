@@ -24,5 +24,10 @@ namespace Registration
         {
             InitializeComponent();
         }
+
+        private void label1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            //Sign in
+        }
     }
 }
