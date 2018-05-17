@@ -160,21 +160,24 @@ namespace BLL
 		}
 		public static void SendMessage(Person from, string Thema, string Message, Person to)
 		{
-			try
+			Task.Run(() =>
 			{
-				MailMessage m = new MailMessage(new MailAddress(from.Email, from.FirstName + " " + from.SecondName), new MailAddress(to.Email));
-				m.Subject = Thema;
-				m.Body = Message;
+				try
+				{
+					MailMessage m = new MailMessage(new MailAddress(from.Email, from.FirstName + " " + from.SecondName), new MailAddress(to.Email));
+					m.Subject = Thema;
+					m.Body = Message;
 
 
-				SmtpClient smtp = new SmtpClient("aspmx.l.google.com", 25);
-				smtp.EnableSsl = true;
-				smtp.Send(m);
-			}
-			catch (Exception ex)
-			{
-				Log.Logger(ex.Message);
-			}
+					SmtpClient smtp = new SmtpClient("aspmx.l.google.com", 25);
+					smtp.EnableSsl = true;
+					smtp.Send(m);
+				}
+				catch (Exception ex)
+				{
+					Log.Logger(ex.Message);
+				}
+			});
 		}
 		public static bool ForgetPassword(string email)
 		{
@@ -229,6 +232,9 @@ namespace BLL
 			}
 		}
 	}
+
+
+
 
 	public class ServiceWork
 	{
