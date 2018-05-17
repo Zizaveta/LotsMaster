@@ -96,18 +96,38 @@ namespace WCF
 
 		public List<Lot> FutureLots()
 		{
-			return ClassWork.FutureLots();
+			List<Lot> Lots = ClassWork.FutureLots();
+			foreach(Lot lot in Lots)
+			{
+				lot.History = null;
+				lot.TellPersonsAboutStart = null;
+			}
+			return Lots;
 		}
 
 		public List<Lot> NowLots()
 		{
-			return ClassWork.NowLots();
+			List<Lot> Lots = ClassWork.NowLots();
+			foreach (Lot lot in Lots)
+			{
+				lot.History = null;
+				lot.TellPersonsAboutStart = null;
+			}
+			return Lots;
 		}
 
 		public List<Lot> OldLots()
 		{
-			return ClassWork.OldLots();
+			List<Lot> Lots = ClassWork.OldLots();
+			foreach (Lot lot in Lots)
+			{
+				lot.History = null;
+				lot.TellPersonsAboutStart = null;
+			}
+			return Lots;
 		}
+
+	//	public LotHistory
 
 		public void SendMessage(string Thema, string Message, Person to)
 		{
