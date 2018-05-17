@@ -37,7 +37,7 @@ namespace WCF
 
 
 
-	[ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
+	[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
 	public class AuctionClient : IAuctionClient
 	{
 		public Person person;
