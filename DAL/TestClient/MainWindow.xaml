@@ -1,0 +1,20 @@
+﻿<Window x:Class="TestClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestClient"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <StackPanel>
+            <Label Content="Email" />
+            <TextBox x:Name="email" />
+            <Label Content="Password" />
+            <PasswordBox x:Name="passw" />
+            <Button Content="Enter" />
+            <Button Content="Forget password" />
+            <Button Content="Registr" />
+        </StackPanel>
+    </Grid>
+</Window>

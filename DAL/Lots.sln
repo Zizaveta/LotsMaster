@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger", "Logger\Logger.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autorization", "Autorization\Autorization.csproj", "{7D1EC7D0-F3FA-41FA-B00C-FB49AAC9307B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTestClient", "ConsoleTestClient\ConsoleTestClient.csproj", "{472E7DC4-1F4E-4D27-9899-F4693776163B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{7D1EC7D0-F3FA-41FA-B00C-FB49AAC9307B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D1EC7D0-F3FA-41FA-B00C-FB49AAC9307B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D1EC7D0-F3FA-41FA-B00C-FB49AAC9307B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{472E7DC4-1F4E-4D27-9899-F4693776163B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{472E7DC4-1F4E-4D27-9899-F4693776163B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{472E7DC4-1F4E-4D27-9899-F4693776163B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{472E7DC4-1F4E-4D27-9899-F4693776163B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

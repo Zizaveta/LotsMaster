@@ -45,7 +45,6 @@ namespace DAL
 			TellPersonsAboutStart = new List<Person>();
 		}
 		public int Id { get; set; }
-		[Index(IsUnique = true)]
 		public string LotName { get; set; }
 		public string About { get; set; }
 		public int StartPrice { get; set; } // пропоную не гратися з копійками

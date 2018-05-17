@@ -9,7 +9,7 @@ using System.Net.Mail;
 
 namespace BLL
 {
-    public class ClassWork // пропоную тут зробити найпростіші ф-ції, а всю перевірку накатати в WCF
+    public class ClassWork 
     {
 		public static bool AddPerson(Person person)
 		{
