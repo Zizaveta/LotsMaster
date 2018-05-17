@@ -31,6 +31,7 @@ namespace Client
             {
                      //time = new DateTime(1,1,1,6,50,20,DateTimeKind.Local); //Work with 1,1,1 only...
                      //TimeToEndElement.Text = time.ToShortTimeString();
+                     //00:10:50
             }
             catch (Exception ex)
             {

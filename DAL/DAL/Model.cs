@@ -53,7 +53,9 @@ namespace DAL
 		public DateTime TimeFinish { get; set; }
 
 		public Person WhoSale { get; set; }
-		public virtual ICollection<LotHistory> History { get; set; }
+        //public Person WhoBouth { get; set; }
+        //public int EndPrice { get; set; }
+        public virtual ICollection<LotHistory> History { get; set; }
 
 		public virtual ICollection<Person> TellPersonsAboutStart { get; set; }
 	}
