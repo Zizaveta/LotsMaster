@@ -33,6 +33,8 @@ namespace WCF
 		void SendMessage(string Thema, string Message, Person to);
 		[OperationContract]
 		void ForgetPassword(string email);
+		[OperationContract]
+		string LotHistory(int LotId);
 	}
 
 
@@ -127,7 +129,10 @@ namespace WCF
 			return Lots;
 		}
 
-	//	public LotHistory
+		public string LotHistory(int LotId)
+		{
+			return ClassWork.LotHistory(LotId);
+		}
 
 		public void SendMessage(string Thema, string Message, Person to)
 		{

@@ -187,6 +187,27 @@ namespace BLL
 				return false;
 			}
 		}
+		public static string LotHistory(int lotId)
+		{
+			try
+			{
+				using (AuctionContent db = new AuctionContent())
+				{
+					string str = "";
+					Lot h = db.Lots.First(elem => elem.Id == lotId);
+					foreach(LotHistory elem in h.History)
+					{
+						str += elem.Persson.FirstName + "\t" + elem.Money + "\n";
+					}
+					return str;
+				}
+			}
+			catch(Exception ex)
+			{
+				Log.Logger(ex.Message);
+				return "";
+			}
+		}
 	}
 
 	public class ServiceWork
