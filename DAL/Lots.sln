@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{8A813D80-F8B4-49C1-A9D8-DBC747CEBAAA}"
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTestClient", "ConsoleTestClient\ConsoleTestClient.csproj", "{472E7DC4-1F4E-4D27-9899-F4693776163B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Registration", "Registration\Registration.csproj", "{1AE53D77-CDA2-4851-BD7A-0929C52DCAB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForgotPass", "ForgotPass\ForgotPass.csproj", "{2B79A182-3CC2-400E-822B-BCDAD6C12EB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,8 +65,15 @@ Global
 		{1AE53D77-CDA2-4851-BD7A-0929C52DCAB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AE53D77-CDA2-4851-BD7A-0929C52DCAB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AE53D77-CDA2-4851-BD7A-0929C52DCAB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B79A182-3CC2-400E-822B-BCDAD6C12EB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B79A182-3CC2-400E-822B-BCDAD6C12EB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B79A182-3CC2-400E-822B-BCDAD6C12EB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B79A182-3CC2-400E-822B-BCDAD6C12EB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D6E57704-D106-41E5-9865-7E4FEC238F34}
 	EndGlobalSection
 EndGlobal
