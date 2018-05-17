@@ -99,5 +99,26 @@ namespace Client
             }
         }
 
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F1)
+            {
+                SingInWindow.Visibility = Visibility.Visible;
+                SingUpWindow.Visibility = Visibility.Hidden;
+                AutorizedWindow.Visibility = Visibility.Hidden;
+            }
+            if (e.Key == Key.F2)
+            {
+                SingInWindow.Visibility = Visibility.Hidden;
+                SingUpWindow.Visibility = Visibility.Visible;
+                AutorizedWindow.Visibility = Visibility.Hidden;
+            }
+            if (e.Key == Key.F3)
+            {
+                SingInWindow.Visibility = Visibility.Hidden;
+                SingUpWindow.Visibility = Visibility.Hidden;
+                AutorizedWindow.Visibility = Visibility.Visible;
+            }
+        }
     }
 }
