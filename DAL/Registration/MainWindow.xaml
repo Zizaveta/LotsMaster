@@ -13,7 +13,7 @@
                 <GradientStop Color="#FF8DA4DD"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Grid Margin="50">
+        <Grid Margin="50,89,50,11">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="200"></RowDefinition>
@@ -26,6 +26,7 @@
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
+                            <TextBox x:Name="Name" TextAlignment="Center" FontSize="23" Height="40" Text="Name" HorizontalAlignment="Center" VerticalAlignment="Top" Width="357" FontStyle="Italic" FontWeight="Bold" Margin="30,4,30,0"></TextBox>
                             <TextBox x:Name="Email" TextAlignment="Center" FontSize="23" Text="E-mail"  Margin="30,55,30,5" FontStyle="Italic" FontWeight="Bold"></TextBox>
                         </Grid>
                         <Grid Grid.Row="1">
@@ -34,7 +35,7 @@
                         </Grid>
                     </Grid>
                 </Grid>
-                <Label x:Name="label1" Foreground="Blue" Content="Sign up" HorizontalAlignment="Left" Height="25" Margin="200,141,0,0" VerticalAlignment="Top" Width="53" FontStyle="Oblique"/>
+                <Label x:Name="label1" Foreground="Blue" Content="Sign in" HorizontalAlignment="Left" Height="25" Margin="200,141,0,0" VerticalAlignment="Top" Width="53" FontStyle="Oblique"/>
             </Grid>
         </Grid>
     </Grid>

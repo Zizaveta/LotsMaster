@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="MainWindow" Height="380" Width="525">
+        Title="MainWindow" Height="380" Width="525" KeyDown="Window_KeyDown" >
     <Window.Resources>
         <!--<Style x:Key="LogElementStyle">
             <Setter Property="Control.FontFamily" Value="Calibri"></Setter>
@@ -21,13 +21,97 @@
         </Style>
     </Window.Resources>
     <Grid>
+
+       
+
+        <Grid x:Name="SingInWindow">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFF8F8F4" Offset="1"/>
+                <GradientStop Color="#FF8DA4DD"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid Margin="50">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <TextBox x:Name="Email" TextAlignment="Center" FontSize="23" Text="E-mail"  Margin="30,55,30,5" FontStyle="Italic" FontWeight="Bold"></TextBox>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <TextBox x:Name="Password" Text="Password" TextAlignment="Center" FontSize="23" Margin="30,5,30,55" FontStyle="Italic" FontWeight="Bold"></TextBox>
+                            <Label x:Name="label" Foreground="Blue" Content="Forgot your password?" HorizontalAlignment="Left" Height="25" Margin="256,41,0,0" VerticalAlignment="Top" Width="131" FontStyle="Italic"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Label x:Name="label1" Foreground="Blue" Content="Sign up" HorizontalAlignment="Left" Height="25" Margin="200,141,0,0" VerticalAlignment="Top" Width="53" FontStyle="Oblique"/>
+            </Grid>
+        </Grid>
+    </Grid>
+
+        <Grid x:Name="SingUpWindow" Visibility="Hidden">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFF8F8F4" Offset="1"/>
+                    <GradientStop Color="#FF8DA4DD"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid Margin="50,89,50,11">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <TextBox x:Name="RegName" TextAlignment="Center" FontSize="23" Height="40" Text="Name" HorizontalAlignment="Center" VerticalAlignment="Top" Width="357" FontStyle="Italic" FontWeight="Bold" Margin="30,4,30,0"></TextBox>
+                                <TextBox x:Name="RegEmail" TextAlignment="Center" FontSize="23" Text="E-mail"  Margin="30,55,30,5" FontStyle="Italic" FontWeight="Bold"></TextBox>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <TextBox x:Name="RegPassword" Text="Password" TextAlignment="Center" FontSize="23" Margin="30,5,30,55" FontStyle="Italic" FontWeight="Bold"></TextBox>
+                                <Label  Foreground="Blue" Content="Forgot your password?" HorizontalAlignment="Left" Height="25" Margin="256,41,0,0" VerticalAlignment="Top" Width="131" FontStyle="Italic"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    <Label  Foreground="Blue" Content="Sign in" HorizontalAlignment="Left" Height="25" Margin="200,141,0,0" VerticalAlignment="Top" Width="53" FontStyle="Oblique"/>
+                </Grid>
+            </Grid>
+        </Grid>
+
+
+        <Grid x:Name="AutorizedWindow" Visibility="Hidden">
+        <Grid.Background>
+            <RadialGradientBrush>
+                <GradientStop Color="#FF838384" Offset="1"/>
+                <GradientStop Color="#FFE4E4E6"/>
+            </RadialGradientBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="32*" />
             <RowDefinition Height="28*" />
             <RowDefinition Height="115*" />
         </Grid.RowDefinitions>
 
-        <Grid   Background="#FF427824"  Margin="10,10,10,10">
+        <Grid  Margin="10,10,10,10">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FF1E115B" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
             <TextBlock x:Name="NameElement" TextAlignment="Center" VerticalAlignment="Center" FontSize="26" Foreground="White">
                 Чайний набір Річарда II
             </TextBlock>
@@ -40,7 +124,13 @@
             </Grid.ColumnDefinitions>
 
             <!--PlaceForUsers-->
-            <Grid Grid.Column="0" Background="#FF8FD169" Margin="10,5,0,5">
+            <Grid Grid.Column="0" Margin="10,5,0,5">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF7B5191" Offset="0"/>
+                        <GradientStop Color="#FFAFACDE" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
                 <!--Icons/IconMan.png-->
                 <StackPanel  Orientation="Horizontal" >
 
@@ -52,6 +142,27 @@
                         <Image Source="Icons/IconGirl.png" />
                         <TextBlock VerticalAlignment="Center" Foreground="Red" FontWeight="Bold" FontSize="20" TextAlignment="Center">180</TextBlock>
                     </Grid>
+                    <Grid>
+                        <Image Source="Icons/IconMan.png" />
+                        <TextBlock VerticalAlignment="Center" Foreground="Red" FontWeight="Bold" FontSize="20" TextAlignment="Center">110</TextBlock>
+                    </Grid>
+                    <Grid>
+                        <Image Source="Icons/IconMan.png" />
+                        <TextBlock VerticalAlignment="Center" Foreground="Red" FontWeight="Bold" FontSize="20" TextAlignment="Center">110</TextBlock>
+                    </Grid>
+                    <Grid>
+                        <Image Source="Icons/IconMan.png" />
+                        <TextBlock VerticalAlignment="Center" Foreground="Red" FontWeight="Bold" FontSize="20" TextAlignment="Center">110</TextBlock>
+                    </Grid>
+                    <Grid>
+                        <Image Source="Icons/IconMan.png" />
+                        <TextBlock VerticalAlignment="Center" Foreground="Red" FontWeight="Bold" FontSize="20" TextAlignment="Center">110</TextBlock>
+                    </Grid>
+                    <Grid>
+                        <Image Source="Icons/IconMan.png" />
+                        <TextBlock VerticalAlignment="Center" Foreground="Red" FontWeight="Bold" FontSize="20" TextAlignment="Center">110</TextBlock>
+                    </Grid>
+
                 </StackPanel>
 
             </Grid>
@@ -59,7 +170,14 @@
 
             <!--PlaceForTimer-->
             <Grid Grid.Column="1" Margin="10,5,10,5">
-                <TextBlock x:Name="TimeToEndElement" FontSize="30" VerticalAlignment="Stretch" TextAlignment="Center" Foreground="White" Background="#FF539B39" Text="00:32:15"/>
+                <TextBlock x:Name="TimeToEndElement" FontSize="30" VerticalAlignment="Stretch" TextAlignment="Center" Foreground="White" Text="00:32:15">
+                    <TextBlock.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF7A4D8E" Offset="0"/>
+                            <GradientStop Color="#FF9090C4" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Background>
+                </TextBlock>
             </Grid>
         </Grid>
 
@@ -72,7 +190,14 @@
 
             <!--PlaceForLog-->
             <Grid Grid.Column="0" Margin="10,10,0,10">
-                <TextBlock  Background="#FF8FD169" Foreground="White" FontSize="18" Text="Bob 15$" FontWeight="Bold" TextDecorations="{x:Null}"/>
+                <TextBlock Foreground="White" FontSize="18" Text="Bob 15$" FontWeight="Bold" TextDecorations="{x:Null}">
+                    <TextBlock.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.75">
+                            <GradientStop Color="#FF271141" Offset="0"/>
+                            <GradientStop Color="#FFA02AF8" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Background>
+                </TextBlock>
             </Grid>
             <!--PlaceForBusiness-->
             <Grid Grid.Column="1">
@@ -81,11 +206,24 @@
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
 
-                <Grid Grid.Row="0" Margin="10,5,10,5"  Background="#FF8FD169" MouseLeftButtonUp="Grid_MouseLeftButtonUp" MouseLeftButtonDown="Grid_MouseLeftButtonDown" >
+                <Grid Grid.Row="0" Margin="10,5,10,5" MouseLeftButtonUp="Grid_MouseLeftButtonUp" MouseLeftButtonDown="Grid_MouseLeftButtonDown" >
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFBB97DB" Offset="0"/>
+                            <GradientStop Color="#FF9090EA" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
                     <!--image and info-->
 
                     <Grid  x:Name="GridImage" Visibility="Visible"  Margin="10"  >
-                        <Image Source="TempPhotoForTest/Lots4.jpg" />
+                        <Image Source="TempPhotoForTest/Lots4.jpg" >
+                            <Image.OpacityMask>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black" Offset="0"/>
+                                    <GradientStop Color="White" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Image.OpacityMask>
+                        </Image>
                     </Grid>
                     <Grid x:Name="GridInfo" Visibility="Hidden" Margin="10"  >
                         <ScrollViewer  VerticalScrollBarVisibility="Auto">
@@ -99,14 +237,20 @@
 
                 </Grid>
                 <!--Money-->
-                <Grid Grid.Row="1" Margin="10,5,10,5" Background="YellowGreen">
+                <Grid Grid.Row="1" Margin="10,5,10,5">
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFC98ED5" Offset="0"/>
+                            <GradientStop Color="#FF8E8BC0" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*" />
                         <RowDefinition Height="1*" />
                     </Grid.RowDefinitions>
 
                     <Grid Grid.Row="0" Margin="20,10,20,5" Background="LightGoldenrodYellow">
-                        <TextBox x:Name="CurrentPrice"/>
+                        <TextBlock x:Name="CurrentPrice" Background="#FFCEA4DE"/>
                     </Grid>
                     <Grid Grid.Row="1" Margin="20,5,20,5">
                         <TextBox KeyDown="TextBox_KeyDown" x:Name="MyCurrentPrice"/>
@@ -121,5 +265,6 @@
 
         </Grid>
 
+    </Grid>
     </Grid>
 </Window>
