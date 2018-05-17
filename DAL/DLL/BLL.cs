@@ -15,15 +15,17 @@ namespace BLL
 		{
 			try
 			{
-				using (AuctionContent db = new AuctionContent())
-				{
-					if (db.Persons.FirstOrDefault(elem => elem.Email == person.Email) == null)
+					using (AuctionContent db = new AuctionContent())
 					{
-						db.Persons.Add(person);
-						db.SaveChanges();
-						return true;
-					}
-					return false;
+					
+						if (db.Persons.FirstOrDefault(elem => elem.Email == person.Email) == null)
+						{
+							db.Persons.Add(person);
+							db.SaveChanges();
+							return true;
+						}
+						return false;
+					
 				}
 			}
 			catch(Exception ex)
