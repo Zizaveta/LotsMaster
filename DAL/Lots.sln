@@ -25,6 +25,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForgotPass", "ForgotPass\Fo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleConnect", "ConsoleConnect\ConsoleConnect.csproj", "{1F9397A4-8EB2-4F7A-AF7B-9ADBD19B6DE3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChouseWindowForClient", "ChouseWindowForClient\ChouseWindowForClient.csproj", "{6440598E-D844-46F8-B333-8A0C9206428F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Settings", "Settings\Settings.csproj", "{E1BDDAAC-3ED1-4A3E-90F3-F73EC39EB53C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

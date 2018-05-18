@@ -12,34 +12,37 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Registration.ServiceReference1;
 
-namespace Registration
+namespace Settings
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        AuctionClientClient a = new AuctionClientClient();
-        public void Reg()
-        {
-            string name,surname, email, password;
-            name = Name.Text;
-            surname = Surname.Text;
-            email = Email.Text;
-            password = Password.Password;
-            MessageBox.Show(a.AddPerson(name, surname, email, password));
-            MessageBox.Show("Complete");
-        }
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void label1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void AddLotButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Reg();
+
+        }
+
+        private void SettingButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void SingOutButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void ThemesButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

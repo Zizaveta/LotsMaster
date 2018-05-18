@@ -30,11 +30,11 @@
                         </Grid>
                         <Grid Grid.Row="1">
                             <PasswordBox x:Name="Password" Password="Password" HorizontalContentAlignment="Center" FontSize="23" Margin="30,5,30,55" FontStyle="Italic" FontWeight="Bold"></PasswordBox>
-                            <Label x:Name="label" Foreground="Blue" Content="Forgot your password?" HorizontalAlignment="Left" Height="25" Margin="256,41,0,0" VerticalAlignment="Top" Width="131" FontStyle="Italic"/>
+                            <Label x:Name="label" Foreground="Blue" Content="Forgot your password?" HorizontalAlignment="Left" Height="25" Margin="256,41,0,0" VerticalAlignment="Top" Width="131" FontStyle="Italic" MouseLeftButtonDown="label_MouseLeftButtonDown"/>
                         </Grid>
                     </Grid>
                 </Grid>
-                <Label x:Name="label1" Foreground="Blue" Content="Sign up" HorizontalAlignment="Left" Height="25" Margin="200,141,0,0" VerticalAlignment="Top" Width="53" FontStyle="Oblique"/>
+                <Label x:Name="label1" Foreground="Blue" Content="Sign up" HorizontalAlignment="Left" Height="25" Margin="200,141,0,0" VerticalAlignment="Top" Width="53" FontStyle="Oblique" MouseLeftButtonDown="label1_MouseLeftButtonDown"/>
             </Grid>
         </Grid>
     </Grid>

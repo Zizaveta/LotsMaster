@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ForgotPass.ServiceReference1;
 
 namespace ForgotPass
 {
@@ -20,6 +21,7 @@ namespace ForgotPass
     /// </summary>
     public partial class MainWindow : Window
     {
+        AuctionClientClient a = new AuctionClientClient();
         public MainWindow()
         {
             InitializeComponent();
@@ -27,7 +29,8 @@ namespace ForgotPass
 
         private void label_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
+            a.ForgetPassword(Email.Text, Name.Text);
+            MessageBox.Show("Complete");
         }
     }
 }
