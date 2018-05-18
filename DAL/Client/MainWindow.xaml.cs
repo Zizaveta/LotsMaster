@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Client.ServiceReference1;
 using System.Globalization;
+using System.Windows.Threading;
+
 namespace Client
 {
     public partial class MainWindow : Window
@@ -21,17 +23,19 @@ namespace Client
         AuctionClientClient Client;
         public System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
         public System.Windows.Threading.DispatcherTimer LotsTimer = new System.Windows.Threading.DispatcherTimer();
+
         public MainWindow()
         {
             InitializeComponent();
-            //string date1 = "6:50:14";
-            //date1, CultureInfo.CreateSpecificCulture("en-US")
-            //, CultureInfo.CreateSpecificCulture("en-US").Calendar, DateTimeKind.Utc
+      
             try
             {
-                     //time = new DateTime(1,1,1,6,50,20,DateTimeKind.Local); //Work with 1,1,1 only...
-                     //TimeToEndElement.Text = time.ToShortTimeString();
-                     //00:10:50
+                DateTime dt1 = new DateTime(2018, 5, 18, 17, 56, 43);
+                DateTime dt2 = new DateTime(2018, 5, 18, 17, 56, 47);
+                TimeSpan ts = dt2 - dt1;
+                LotsTimer.Tick += Timer_Tick;
+                LotsTimer.Interval = ts;
+                LotsTimer.Start();
             }
             catch (Exception ex)
             {
@@ -39,13 +43,16 @@ namespace Client
                 Clipboard.SetText(ex.Message);
                 MessageBox.Show(ex.Message);
             }
-            LotsTimer.Tick += new EventHandler(MainTimer);
-            LotsTimer.Interval = new TimeSpan(0, 0, 0, 1);
-            LotsTimer.Start();
+            
 
             //GridInfoTextBlock.Width = GridInfo.ActualWidth;
             Client = new AuctionClientClient();
             //Client.NowLots().Last().History.Last().Money;
+        }
+        private static void Timer_Tick(object sender, EventArgs e)
+        {
+            MessageBox.Show("Yeeeee");
+            ((DispatcherTimer)sender).Stop();
         }
 
         private void Grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

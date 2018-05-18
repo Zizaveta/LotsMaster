@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DAL;
 using Logger;
 using System.Net.Mail;
+using System.Windows.Threading;
 
 namespace BLL
 {
@@ -55,6 +56,7 @@ namespace BLL
 			{
 				using (AuctionContent db = new AuctionContent())
 				{
+                    //message
 					db.Lots.Add(lot);
 					db.SaveChanges();
 					return true;
@@ -136,29 +138,61 @@ namespace BLL
 				return null;
 			}
 		}
-		public static bool TellMeAboutStartLot(Person person, int lotId)
-		{
-			try
-			{
-				using (AuctionContent db = new AuctionContent())
-				{
-					if (db.Lots.First(elem => elem.Id == lotId).TimeStart <= DateTime.Now)
-						return false;
-					if (db.Lots.First(elem => elem.Id == lotId).TellPersonsAboutStart.Contains(person) == false)
-					{
-						db.Lots.First(elem => elem.Id == lotId).TellPersonsAboutStart.Add(person);
-						db.SaveChanges();
-					}
-					return true;
-				}
-			}
-			catch(Exception ex)
-			{
-				Log.Logger(ex.Message);
-				return false;
-			}
-		}
-		public static void SendMessage(Person from, string Thema, string Message, Person to)
+        //public static bool TellMeAboutStartLot(Person person, int lotId)
+        //{
+        //	try
+        //	{
+        //		using (AuctionContent db = new AuctionContent())
+        //		{
+        //			if (db.Lots.First(elem => elem.Id == lotId).TimeStart <= DateTime.Now)
+        //				return false;
+        //			if (db.Lots.First(elem => elem.Id == lotId).TellPersonsAboutStart.Contains(person) == false)
+        //			{
+        //				db.Lots.First(elem => elem.Id == lotId).TellPersonsAboutStart.Add(person);
+        //				db.SaveChanges();
+        //			}
+        //			return true;
+        //		}
+        //	}
+        //	catch(Exception ex)
+        //	{
+        //		Log.Logger(ex.Message);
+        //		return false;
+        //	}
+        //}
+        
+        public static void TellMeAboutStartLot(Lot temp)
+        {
+            try
+            {
+             DispatcherTimer timer = new DispatcherTimer();
+                EventArgs ea = new EventArgs();
+                timer.Tick += Timer_Tick;
+                DateTime dt1 = temp.TimeStart;
+                DateTime dt2 = temp.TimeFinish;
+                TimeSpan ts = dt2 - dt1;
+                timer.Interval = ts;
+                timer.Start();
+
+            }
+            catch (Exception ex)
+            {
+                Log.Logger(ex.Message);
+            }
+
+        }
+
+        private static void Timer_Tick(object sender, EventArgs e)
+        {
+            //пройтися циклом і повідомити людей
+            //for
+            //db.Lots.First(elem => elem.Id == lotId).TellPersonsAboutStart.Add(person);
+            ((DispatcherTimer)sender).Stop();
+        }
+
+        //Треба ліст людей
+
+        public static void SendMessage(Person from, string Thema, string Message, Person to)
 		{
 			Task.Run(() =>
 			{
