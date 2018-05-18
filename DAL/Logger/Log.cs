@@ -11,7 +11,7 @@ namespace Logger
 	{
 		public static void Logger(string m)
 		{
-			using (StreamWriter s = new StreamWriter(@"D:\Exeptions.txt", true))
+			using (StreamWriter s = new StreamWriter(@"C:\Users\Renzhyna\source\repos\Exceptions.txt", true))
 			{
 				s.WriteLine(DateTime.Now + ": " + m);
 			}
