@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Autorization.ServiceReference1;
 
 namespace Autorization
 {
@@ -20,9 +21,26 @@ namespace Autorization
     /// </summary>
     public partial class MainWindow : Window
     {
+        AuctionClientClient a = new AuctionClientClient();
+        public void Aut()
+        {
+            MessageBox.Show(a.Authorization(Email.Text, Password.Password));
+            MessageBox.Show("Complete");
+        }
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void label1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void label_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

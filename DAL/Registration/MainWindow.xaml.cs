@@ -30,6 +30,7 @@ namespace Registration
             email = Email.Text;
             password = Password.Password;
             MessageBox.Show(a.AddPerson(name, surname, email, password));
+            MessageBox.Show("Complete");
         }
         public MainWindow()
         {
@@ -38,7 +39,7 @@ namespace Registration
 
         private void label1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            //Sign in
+            Reg();
         }
     }
 }
