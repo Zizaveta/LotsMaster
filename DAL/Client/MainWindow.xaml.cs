@@ -107,19 +107,67 @@ namespace Client
                 SingInWindow.Visibility = Visibility.Visible;
                 SingUpWindow.Visibility = Visibility.Hidden;
                 AutorizedWindow.Visibility = Visibility.Hidden;
+                ForgotPasswordWindow.Visibility = Visibility.Hidden;
             }
             if (e.Key == Key.F2)
             {
                 SingInWindow.Visibility = Visibility.Hidden;
                 SingUpWindow.Visibility = Visibility.Visible;
                 AutorizedWindow.Visibility = Visibility.Hidden;
+                ForgotPasswordWindow.Visibility = Visibility.Hidden;
             }
             if (e.Key == Key.F3)
             {
                 SingInWindow.Visibility = Visibility.Hidden;
                 SingUpWindow.Visibility = Visibility.Hidden;
-                AutorizedWindow.Visibility = Visibility.Visible;
+                AutorizedWindow.Visibility = Visibility.Hidden;
+                ForgotPasswordWindow.Visibility = Visibility.Visible;
             }
+            if (e.Key == Key.F4)
+            {
+                SingInWindow.Visibility = Visibility.Hidden;
+                SingUpWindow.Visibility = Visibility.Hidden;
+                AutorizedWindow.Visibility = Visibility.Visible;
+                ForgotPasswordWindow.Visibility = Visibility.Hidden;
+            }
+            if (e.Key == Key.Escape)
+            {
+                if(ForgotPasswordWindow.Visibility == Visibility.Visible || SingUpWindow.Visibility == Visibility.Visible)
+                {
+
+                SingInWindow.Visibility = Visibility.Visible;
+                SingUpWindow.Visibility = Visibility.Hidden;
+                AutorizedWindow.Visibility = Visibility.Hidden;
+                ForgotPasswordWindow.Visibility = Visibility.Hidden;
+                }
+            }
+        }
+
+        private void SingIn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            SingInWindow.Visibility = Visibility.Visible;
+            SingUpWindow.Visibility = Visibility.Hidden;
+            AutorizedWindow.Visibility = Visibility.Hidden;
+            ForgotPasswordWindow.Visibility = Visibility.Hidden;
+        }
+        private void SingUp_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            SingInWindow.Visibility = Visibility.Hidden;
+            SingUpWindow.Visibility = Visibility.Visible;
+            AutorizedWindow.Visibility = Visibility.Hidden;
+            ForgotPasswordWindow.Visibility = Visibility.Hidden;
+        }
+        private void Forgot_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            SingInWindow.Visibility = Visibility.Hidden;
+            SingUpWindow.Visibility = Visibility.Hidden;
+            AutorizedWindow.Visibility = Visibility.Hidden;
+            ForgotPasswordWindow.Visibility = Visibility.Visible;
+        }
+
+        private void SendPass_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

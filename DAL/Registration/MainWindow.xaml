@@ -36,7 +36,7 @@
                         </Grid>
                     </Grid>
                 </Grid>
-                <Label x:Name="label1" Foreground="Blue" Content="Sign in" HorizontalAlignment="Left" Height="25" Margin="200,184,0,0" VerticalAlignment="Top" Width="53" FontStyle="Oblique" Grid.RowSpan="2" MouseLeftButtonDown="label1_MouseLeftButtonDown"/>
+                <Label x:Name="label1" Foreground="Blue" Content="Sign in" HorizontalAlignment="Left" Height="25" Margin="200,184,0,0" VerticalAlignment="Top" Width="53" FontStyle="Oblique" Grid.RowSpan="2" />
             </Grid>
         </Grid>
     </Grid>
