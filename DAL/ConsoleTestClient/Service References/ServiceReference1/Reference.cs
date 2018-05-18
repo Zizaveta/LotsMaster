@@ -527,10 +527,10 @@ namespace ConsoleTestClient.ServiceReference1 {
         System.Threading.Tasks.Task SendMessageAsync(string Thema, string Message, ConsoleTestClient.ServiceReference1.Person to);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/ForgetPassword", ReplyAction="http://tempuri.org/IAuctionClient/ForgetPasswordResponse")]
-        void ForgetPassword(string email);
+        void ForgetPassword(string email, string FirstName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/ForgetPassword", ReplyAction="http://tempuri.org/IAuctionClient/ForgetPasswordResponse")]
-        System.Threading.Tasks.Task ForgetPasswordAsync(string email);
+        System.Threading.Tasks.Task ForgetPasswordAsync(string email, string FirstName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/LotHistory", ReplyAction="http://tempuri.org/IAuctionClient/LotHistoryResponse")]
         string LotHistory(int LotId);
@@ -543,6 +543,12 @@ namespace ConsoleTestClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/LastBet", ReplyAction="http://tempuri.org/IAuctionClient/LastBetResponse")]
         System.Threading.Tasks.Task<int> LastBetAsync(int LotId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/AboutLot", ReplyAction="http://tempuri.org/IAuctionClient/AboutLotResponse")]
+        ConsoleTestClient.ServiceReference1.Lot AboutLot(int LotId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/AboutLot", ReplyAction="http://tempuri.org/IAuctionClient/AboutLotResponse")]
+        System.Threading.Tasks.Task<ConsoleTestClient.ServiceReference1.Lot> AboutLotAsync(int LotId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -644,12 +650,12 @@ namespace ConsoleTestClient.ServiceReference1 {
             return base.Channel.SendMessageAsync(Thema, Message, to);
         }
         
-        public void ForgetPassword(string email) {
-            base.Channel.ForgetPassword(email);
+        public void ForgetPassword(string email, string FirstName) {
+            base.Channel.ForgetPassword(email, FirstName);
         }
         
-        public System.Threading.Tasks.Task ForgetPasswordAsync(string email) {
-            return base.Channel.ForgetPasswordAsync(email);
+        public System.Threading.Tasks.Task ForgetPasswordAsync(string email, string FirstName) {
+            return base.Channel.ForgetPasswordAsync(email, FirstName);
         }
         
         public string LotHistory(int LotId) {
@@ -666,6 +672,14 @@ namespace ConsoleTestClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> LastBetAsync(int LotId) {
             return base.Channel.LastBetAsync(LotId);
+        }
+        
+        public ConsoleTestClient.ServiceReference1.Lot AboutLot(int LotId) {
+            return base.Channel.AboutLot(LotId);
+        }
+        
+        public System.Threading.Tasks.Task<ConsoleTestClient.ServiceReference1.Lot> AboutLotAsync(int LotId) {
+            return base.Channel.AboutLotAsync(LotId);
         }
     }
 }

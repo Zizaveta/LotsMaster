@@ -65,9 +65,7 @@ namespace WCF
 				return "Input true date and time";
 			if (Name.Length == 0 || About.Length == 0)
 				return "Input name and about";
-			if (ClassWork.AddLot(new Lot() { About = About, LotName = Name, StartPrice = StartPrice, TimeStart = Start, TimeFinish = Finish, Photo = Img, WhoSale = person }) == true)
-            {
-
+			if (ClassWork.AddLot(new Lot() { About = About, LotName = Name, StartPrice = StartPrice, TimeStart = Start, TimeFinish = Finish, Photo = Img }, person) == true)
 				return "Lot is add";
             }
 			else return "Something wrong";

@@ -23,6 +23,7 @@ namespace BLL
 						{
 							db.Persons.Add(person);
 							db.SaveChanges();
+                        Log.Logger("Person add");
 							return true;
 						}
 						return false;
@@ -50,12 +51,14 @@ namespace BLL
 				return null;
 			}
 		}
-		public static bool AddLot(Lot lot)
+		public static bool AddLot(Lot lot,Person p)
 		{
 			try
 			{
 				using (AuctionContent db = new AuctionContent())
 				{
+                    db.Persons.Attach(p);
+                    lot.WhoSale = p;
                     //message
 					db.Lots.Add(lot);
 					db.SaveChanges();

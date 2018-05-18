@@ -23,7 +23,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Registration", "Registratio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForgotPass", "ForgotPass\ForgotPass.csproj", "{2B79A182-3CC2-400E-822B-BCDAD6C12EB2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleConnect", "ConsoleConnect\ConsoleConnect.csproj", "{1F9397A4-8EB2-4F7A-AF7B-9ADBD19B6DE3}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChouseWindowForClient", "ChouseWindowForClient\ChouseWindowForClient.csproj", "{6440598E-D844-46F8-B333-8A0C9206428F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Settings", "Settings\Settings.csproj", "{E1BDDAAC-3ED1-4A3E-90F3-F73EC39EB53C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,10 +75,10 @@ Global
 		{2B79A182-3CC2-400E-822B-BCDAD6C12EB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B79A182-3CC2-400E-822B-BCDAD6C12EB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B79A182-3CC2-400E-822B-BCDAD6C12EB2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6440598E-D844-46F8-B333-8A0C9206428F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6440598E-D844-46F8-B333-8A0C9206428F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6440598E-D844-46F8-B333-8A0C9206428F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6440598E-D844-46F8-B333-8A0C9206428F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F9397A4-8EB2-4F7A-AF7B-9ADBD19B6DE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F9397A4-8EB2-4F7A-AF7B-9ADBD19B6DE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F9397A4-8EB2-4F7A-AF7B-9ADBD19B6DE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F9397A4-8EB2-4F7A-AF7B-9ADBD19B6DE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6ff02ad3-9e9e-4575-a204-97d63f4d2c38" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cc3b4cd1-8a6a-40b8-9f5a-88d6f7c0790a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8000" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://10.7.34.4:8000" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="AuctionClient.wsdl" MetadataType="Wsdl" ID="025d4077-7bce-4a22-9d8b-71e5c7432572" SourceId="1" SourceUrl="http://localhost:8000/?wsdl" />
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="1332785d-1975-4ddc-ba4d-b319daf84949" SourceId="1" SourceUrl="http://localhost:8000/?xsd=xsd2" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="0fb568e2-f5e4-4c96-9383-22b6c548492b" SourceId="1" SourceUrl="http://localhost:8000/?xsd=xsd1" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="3b6ec6d9-1414-43bd-96fd-00b5cd3b0fc2" SourceId="1" SourceUrl="http://localhost:8000/?disco" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="86e85eb0-98a7-4d31-ab36-0b366137e04f" SourceId="1" SourceUrl="http://localhost:8000/?xsd=xsd0" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="9115c3e7-a69b-48a9-b6b2-eb6d8f561d88" SourceId="1" SourceUrl="http://10.7.34.4:8000/?xsd=xsd1" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="e36f86c4-5361-4d60-8e10-dd0c81a9f3eb" SourceId="1" SourceUrl="http://10.7.34.4:8000/?disco" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="91f91236-da53-499a-bc55-5b5affb040ca" SourceId="1" SourceUrl="http://10.7.34.4:8000/?xsd=xsd2" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="f1a5c3ae-cc3c-4288-a739-fe1439f6bf57" SourceId="1" SourceUrl="http://10.7.34.4:8000/?xsd=xsd0" />
+    <MetadataFile FileName="AuctionClient.wsdl" MetadataType="Wsdl" ID="b1415dae-5ccb-41bb-9297-23e1ae512d10" SourceId="1" SourceUrl="http://10.7.34.4:8000/?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
