@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AuctionClient" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://10.7.26.11:8000/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://10.7.26.11:8000/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://10.7.26.11:8000/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DAL" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAuctionClient_AddPerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPerson" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_AddPerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_Authorization_InputMessage">
+    <wsdl:part name="parameters" element="tns:Authorization" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_Authorization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthorizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_AddLot_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddLot" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_AddLot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddLotResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_Bet_InputMessage">
+    <wsdl:part name="parameters" element="tns:Bet" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_Bet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_OldLots_InputMessage">
+    <wsdl:part name="parameters" element="tns:OldLots" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_OldLots_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OldLotsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_FutureLots_InputMessage">
+    <wsdl:part name="parameters" element="tns:FutureLots" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_FutureLots_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FutureLotsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_NowLots_InputMessage">
+    <wsdl:part name="parameters" element="tns:NowLots" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_NowLots_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NowLotsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_TellMeAboutStartLot_InputMessage">
+    <wsdl:part name="parameters" element="tns:TellMeAboutStartLot" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_TellMeAboutStartLot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TellMeAboutStartLotResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_SendMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessage" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_SendMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_ForgetPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ForgetPassword" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_ForgetPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ForgetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_LotHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:LotHistory" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_LotHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LotHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_LastBet_InputMessage">
+    <wsdl:part name="parameters" element="tns:LastBet" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_LastBet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LastBetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_AboutLot_InputMessage">
+    <wsdl:part name="parameters" element="tns:AboutLot" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_AboutLot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AboutLotResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAuctionClient">
+    <wsdl:operation name="AddPerson">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionClient/AddPerson" message="tns:IAuctionClient_AddPerson_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionClient/AddPersonResponse" message="tns:IAuctionClient_AddPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Authorization">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionClient/Authorization" message="tns:IAuctionClient_Authorization_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionClient/AuthorizationResponse" message="tns:IAuctionClient_Authorization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLot">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionClient/AddLot" message="tns:IAuctionClient_AddLot_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionClient/AddLotResponse" message="tns:IAuctionClient_AddLot_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Bet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionClient/Bet" message="tns:IAuctionClient_Bet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionClient/BetResponse" message="tns:IAuctionClient_Bet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OldLots">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionClient/OldLots" message="tns:IAuctionClient_OldLots_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionClient/OldLotsResponse" message="tns:IAuctionClient_OldLots_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FutureLots">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionClient/FutureLots" message="tns:IAuctionClient_FutureLots_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionClient/FutureLotsResponse" message="tns:IAuctionClient_FutureLots_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NowLots">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionClient/NowLots" message="tns:IAuctionClient_NowLots_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionClient/NowLotsResponse" message="tns:IAuctionClient_NowLots_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TellMeAboutStartLot">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionClient/TellMeAboutStartLot" message="tns:IAuctionClient_TellMeAboutStartLot_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionClient/TellMeAboutStartLotResponse" message="tns:IAuctionClient_TellMeAboutStartLot_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionClient/SendMessage" message="tns:IAuctionClient_SendMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionClient/SendMessageResponse" message="tns:IAuctionClient_SendMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ForgetPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionClient/ForgetPassword" message="tns:IAuctionClient_ForgetPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionClient/ForgetPasswordResponse" message="tns:IAuctionClient_ForgetPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LotHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionClient/LotHistory" message="tns:IAuctionClient_LotHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionClient/LotHistoryResponse" message="tns:IAuctionClient_LotHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LastBet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionClient/LastBet" message="tns:IAuctionClient_LastBet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionClient/LastBetResponse" message="tns:IAuctionClient_LastBet_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AboutLot">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionClient/AboutLot" message="tns:IAuctionClient_AboutLot_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionClient/AboutLotResponse" message="tns:IAuctionClient_AboutLot_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAuctionClient" type="tns:IAuctionClient">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddPerson">
+      <soap:operation soapAction="http://tempuri.org/IAuctionClient/AddPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Authorization">
+      <soap:operation soapAction="http://tempuri.org/IAuctionClient/Authorization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLot">
+      <soap:operation soapAction="http://tempuri.org/IAuctionClient/AddLot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Bet">
+      <soap:operation soapAction="http://tempuri.org/IAuctionClient/Bet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OldLots">
+      <soap:operation soapAction="http://tempuri.org/IAuctionClient/OldLots" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FutureLots">
+      <soap:operation soapAction="http://tempuri.org/IAuctionClient/FutureLots" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NowLots">
+      <soap:operation soapAction="http://tempuri.org/IAuctionClient/NowLots" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TellMeAboutStartLot">
+      <soap:operation soapAction="http://tempuri.org/IAuctionClient/TellMeAboutStartLot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <soap:operation soapAction="http://tempuri.org/IAuctionClient/SendMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ForgetPassword">
+      <soap:operation soapAction="http://tempuri.org/IAuctionClient/ForgetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LotHistory">
+      <soap:operation soapAction="http://tempuri.org/IAuctionClient/LotHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LastBet">
+      <soap:operation soapAction="http://tempuri.org/IAuctionClient/LastBet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AboutLot">
+      <soap:operation soapAction="http://tempuri.org/IAuctionClient/AboutLot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AuctionClient">
+    <wsdl:port name="BasicHttpBinding_IAuctionClient" binding="tns:BasicHttpBinding_IAuctionClient">
+      <soap:address location="http://10.7.26.11:8000/WorkWithMoney" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

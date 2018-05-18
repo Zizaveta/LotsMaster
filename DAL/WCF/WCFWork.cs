@@ -32,21 +32,30 @@ namespace WCF
 		[OperationContract]
 		void SendMessage(string Thema, string Message, Person to);
 		[OperationContract]
-		void ForgetPassword(string email);
+		void ForgetPassword(string email, string FirstName);
 		[OperationContract]
 		string LotHistory(int LotId);
 		[OperationContract]
 		int LastBet(int LotId);
-	}
+        [OperationContract]
+        Lot AboutLot(int LotId);
+
+    }
 
 
 
-	[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
 	public class AuctionClient : IAuctionClient
 	{
 		public Person person;
 
-		public string AddLot(string Name, string About, int StartPrice, DateTime Start, DateTime Finish, string Img = null)
+        public Lot AboutLot(int LotId)
+        {
+            return ClassWork.AboutLot(LotId);
+        }
+
+
+        public string AddLot(string Name, string About, int StartPrice, DateTime Start, DateTime Finish, string Img = null)
 		{
 			if (person == null)
 				return "Authorization!!!";
@@ -93,9 +102,9 @@ namespace WCF
 				
 		}
 
-		public void ForgetPassword(string email)
+		public void ForgetPassword(string email, string Name)
 		{
-			ClassWork.ForgetPassword(email);
+			ClassWork.ForgetPassword(email, Name);
 		}
 
 		public List<Lot> FutureLots()
@@ -103,7 +112,8 @@ namespace WCF
 			List<Lot> Lots = ClassWork.FutureLots();
 			foreach(Lot lot in Lots)
 			{
-				lot.History = null;
+                lot.WhoSale.Password = null;
+                lot.History = null;
 				lot.TellPersonsAboutStart = null;
 			}
 			return Lots;
@@ -111,9 +121,12 @@ namespace WCF
 
 		public List<Lot> NowLots()
 		{
-			List<Lot> Lots = ClassWork.NowLots();
-			foreach (Lot lot in Lots)
+            List<Lot> Lots = ClassWork.NowLots();
+            if (Lots.Count < 5)
+                Lots.AddRange(ClassWork.FutureLots());
+            foreach (Lot lot in Lots)
 			{
+                lot.WhoSale.Password = null;
 				lot.History = null;
 				lot.TellPersonsAboutStart = null;
 			}
@@ -125,7 +138,8 @@ namespace WCF
 			List<Lot> Lots = ClassWork.OldLots();
 			foreach (Lot lot in Lots)
 			{
-				lot.History = null;
+                lot.WhoSale.Password = null;
+                lot.History = null;
 				lot.TellPersonsAboutStart = null;
 			}
 			return Lots;
