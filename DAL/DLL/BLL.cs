@@ -112,8 +112,8 @@ namespace BLL
 			{
 				using (AuctionContent db = new AuctionContent())
 				{
-					return db.Lots.Where(elem => elem.TimeStart > DateTime.Now).ToList();
-				}
+					return db.Lots.Where(elem => elem.TimeStart > DateTime.Now).OrderBy(elem => elem.TimeStart).ToList();
+                }
 			}
 			catch (Exception ex)
 			{
@@ -127,7 +127,7 @@ namespace BLL
 			{
 				using (AuctionContent db = new AuctionContent())
 				{
-					return db.Lots.Where(elem => elem.TimeStart > DateTime.Now && elem.TimeFinish < DateTime.Now).ToList();
+					return db.Lots.Where(elem => elem.TimeStart > DateTime.Now && elem.TimeFinish < DateTime.Now).OrderBy(elem => elem.TimeStart).ToList();
 				}
 			}
 			catch (Exception ex)
@@ -179,13 +179,13 @@ namespace BLL
 				}
 			});
 		}
-		public static bool ForgetPassword(string email)
+		public static bool ForgetPassword(string email, string FN)
 		{
 			try
 			{
 				using (AuctionContent db = new AuctionContent())
 				{
-					ClassWork.SendMessage(new Person() { Email = "miss.elizaveta@gmail.com", FirstName = "Not", SecondName = "Name" }, "ForgetPassword", "Your password: " + db.Persons.First(elem => elem.Email == email).Password, db.Persons.First(elem => elem.Email == email));
+					ClassWork.SendMessage(new Person() { Email = "miss.elizaveta@gmail.com", FirstName = "Not", SecondName = "Name" }, "ForgetPassword", "Your password: " + db.Persons.First(elem => elem.Email == email && elem.FirstName == FN).Password, db.Persons.First(elem => elem.Email == email));
 					return true;
 				}
 			}
@@ -231,6 +231,30 @@ namespace BLL
 				return 0;
 			}
 		}
+        public static Lot AboutLot(int LotId)
+        {
+            try
+            {
+                using (AuctionContent db = new AuctionContent())
+                {
+                    Lot l =  db.Lots.FirstOrDefault(elem => elem.Id == LotId);
+                    l.WhoSale.Password = null;
+                    l.History = null;
+                    foreach (Person elem in l.TellPersonsAboutStart)
+                    {
+                        elem.Lots = null;
+                        elem.Password = null;
+                        elem.Histories = null;
+                    }
+                    return l;
+                }
+            }
+            catch(Exception ex)
+            {
+                Log.Logger(ex.Message);
+                return null;
+            }
+        }
 	}
 
 
