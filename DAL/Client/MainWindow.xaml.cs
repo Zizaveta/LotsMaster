@@ -49,23 +49,51 @@ namespace Client
             Client = new AuctionClientClient();
             //Client.NowLots().Last().History.Last().Money;
         }
+
         private static void Timer_Tick(object sender, EventArgs e)
         {
             MessageBox.Show("Yeeeee");
             ((DispatcherTimer)sender).Stop();
         }
+        private void MainTimer(object sender, EventArgs e)
+        {
+            
+            //TimeToEndElement.Text = LotsTimer.
+        }
 
+        private void LoadInfoAboutAllLots()
+        {
+            //Client.
+            //Get Name
+            //Get Image 
+            //Get Current Price
+            //for(int i=1;i<)
+
+            //ph1-8 Photos
+            //SettingsImg2 - Name
+        }
+
+        private void OpenLot()
+        {
+            //Client.
+            //Get Name
+            //Get Image and Info
+            //Get Current Price
+        }
+
+        //Image-Info click
         private void Grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             GridImage.Visibility = Visibility.Visible;
             GridInfo.Visibility = Visibility.Hidden;
         }
-
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             GridImage.Visibility = Visibility.Hidden;
             GridInfo.Visibility = Visibility.Visible;
         }
+
+        //RedLotPrice
         private void timerTick(object sender, EventArgs e)
         {
             MyCurrentPrice.Background =  new SolidColorBrush(Colors.Red);
@@ -74,17 +102,12 @@ namespace Client
             timer.Interval = new TimeSpan(0, 0, 0, 0, 200);
             timer.Start();
         }
-        private void MainTimer(object sender, EventArgs e)
-        {
-            
-            //TimeToEndElement.Text = LotsTimer.
-        }
-
         private void timerEnd(object sender, EventArgs e)
         {
             MyCurrentPrice.Background = new SolidColorBrush(Colors.White);
         }
 
+        //TextBox ENTER
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -107,6 +130,7 @@ namespace Client
             }
         }
 
+        //WindowsMove
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.F1)
@@ -165,7 +189,6 @@ namespace Client
                 //}
             }
         }
-
         private void SingIn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             SingInWindow.Visibility = Visibility.Visible;

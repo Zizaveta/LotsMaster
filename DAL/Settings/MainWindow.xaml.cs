@@ -37,6 +37,7 @@ namespace Settings
 
         private void SingOutButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            //очистити вікно логіна і зробити поточним F1
 
         }
 
