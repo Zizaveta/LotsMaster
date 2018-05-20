@@ -91,7 +91,7 @@
             </Grid>
         </Grid>
 
-        <Grid x:Name="SettingWindows" >
+        <Grid x:Name="SettingWindows" Loaded="SettingWindows_Loaded">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFF8F8F4" Offset="1"/>

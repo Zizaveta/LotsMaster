@@ -61,13 +61,33 @@ namespace Client
             //TimeToEndElement.Text = LotsTimer.
         }
 
+        
+
         private void LoadInfoAboutAllLots()
         {
             //Client.
             //Get Name
             //Get Image 
             //Get Current Price
-            //for(int i=1;i<)
+
+            int i = 1;
+            while(i!=5)
+            {
+            BitmapImage bi1 = new BitmapImage();
+            bi1.BeginInit();
+            bi1.UriSource = new Uri("TempPhotoForTest/Lots"+i+ ".jpg", UriKind.Relative);
+            bi1.EndInit();
+            switch (i)
+            {
+                case 1: Ph1.Source = bi1;break;
+                case 2: Ph2.Source = bi1; break;
+                case 3: Ph3.Source = bi1; break;
+                case 4: Ph4.Source = bi1; break;
+                default:Console.WriteLine("Default case");break;
+            }
+                i++;
+            }
+         
 
             //ph1-8 Photos
             //SettingsImg2 - Name
@@ -164,6 +184,7 @@ namespace Client
                 AutorizedWindow.Visibility = Visibility.Hidden;
                 ForgotPasswordWindow.Visibility = Visibility.Hidden;
                 SettingWindows.Visibility = Visibility.Visible;
+                LoadInfoAboutAllLots();
             }
             if (e.Key == Key.F5)
             {
@@ -233,6 +254,11 @@ namespace Client
         private void ThemesButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
+        }
+
+        private void SettingWindows_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadInfoAboutAllLots();
         }
     }
 }
