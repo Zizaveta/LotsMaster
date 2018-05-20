@@ -57,6 +57,144 @@
         </Grid>
     </Grid>
 
+        <Grid x:Name="SettingWindows" Visibility="Hidden">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFF8F8F4" Offset="1"/>
+                    <GradientStop Color="#FF8DA4DD" Offset="0.003"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF131D36" Offset="0"/>
+                        <GradientStop Color="#FF5EB8EC" Offset="1"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid Margin="10" Background="White">
+                        <TextBlock x:Name="AddLotButton" MouseLeftButtonDown="AddLotButton_MouseLeftButtonDown" TextAlignment="Center" Text="AddLot" FontStyle="Italic" FontWeight="Bold" FontSize="18"></TextBlock>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid Margin="10" Background="White">
+                        <TextBlock x:Name="SettingButton" MouseLeftButtonDown="SettingButton_MouseLeftButtonDown" TextAlignment="Center" Text="Setting" FontStyle="Italic" FontWeight="Bold" FontSize="18"></TextBlock>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid Margin="10" Background="White">
+                        <TextBlock x:Name="SingOutButton" MouseLeftButtonDown="SingOutButton_MouseLeftButtonDown" TextAlignment="Center" Text="Sing out" FontStyle="Italic" FontWeight="Bold" FontSize="18"></TextBlock>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Grid Margin="10" Background="White">
+                        <TextBlock x:Name="ThemesButton" MouseLeftButtonDown="ThemesButton_MouseLeftButtonDown" TextAlignment="Center" Text="Themes" FontStyle="Italic" FontWeight="Bold" FontSize="18"></TextBlock>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="4">
+                    <Grid Margin="10" Background="White" Visibility="Hidden"></Grid>
+                </Grid>
+                <Grid Grid.Row="5">
+                    <Grid Margin="10" Background="White" Visibility="Hidden" ></Grid>
+                </Grid>
+                <Grid Grid.Row="6">
+                    <Grid Margin="10" Background="White" Visibility="Hidden"></Grid>
+                </Grid>
+                <Grid Grid.Row="7">
+                    <Grid Margin="10" Background="White" Visibility="Hidden"></Grid>
+                </Grid>
+                <Grid Grid.Row="8">
+                    <Grid Margin="10" Background="White" Visibility="Hidden"></Grid>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid Margin="10" >
+                        <Grid.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF89A2B8" Offset="0"/>
+                                <GradientStop Color="#FF76B2E4" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" x:Name="Ph1"></Image>
+                        <TextBlock Grid.Column="1" x:Name="SettingsImg1"></TextBlock>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid Margin="10" >
+                        <Grid.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF89A2B8" Offset="0"/>
+                                <GradientStop Color="#FF76B2E4" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" x:Name="Ph2"></Image>
+                        <TextBlock Grid.Column="1" x:Name="SettingsImg2"></TextBlock>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid Margin="10" >
+                        <Grid.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF89A2B8" Offset="0"/>
+                                <GradientStop Color="#FF76B2E4" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" x:Name="Ph3"></Image>
+                        <TextBlock Grid.Column="1" x:Name="SettingsImg3"></TextBlock>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Grid Margin="10" >
+                        <Grid.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF89A2B8" Offset="0"/>
+                                <GradientStop Color="#FF76B2E4" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" x:Name="Ph4"></Image>
+                        <TextBlock Grid.Column="1" x:Name="SettingsImg4"></TextBlock>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+
         <Grid x:Name="SingUpWindow" Visibility="Hidden">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

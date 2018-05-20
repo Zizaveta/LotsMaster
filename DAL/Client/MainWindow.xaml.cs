@@ -115,6 +115,7 @@ namespace Client
                 SingUpWindow.Visibility = Visibility.Hidden;
                 AutorizedWindow.Visibility = Visibility.Hidden;
                 ForgotPasswordWindow.Visibility = Visibility.Hidden;
+                SettingWindows.Visibility = Visibility.Hidden;
             }
             if (e.Key == Key.F2)
             {
@@ -122,6 +123,7 @@ namespace Client
                 SingUpWindow.Visibility = Visibility.Visible;
                 AutorizedWindow.Visibility = Visibility.Hidden;
                 ForgotPasswordWindow.Visibility = Visibility.Hidden;
+                SettingWindows.Visibility = Visibility.Hidden;
             }
             if (e.Key == Key.F3)
             {
@@ -129,24 +131,38 @@ namespace Client
                 SingUpWindow.Visibility = Visibility.Hidden;
                 AutorizedWindow.Visibility = Visibility.Hidden;
                 ForgotPasswordWindow.Visibility = Visibility.Visible;
+                SettingWindows.Visibility = Visibility.Hidden;
             }
             if (e.Key == Key.F4)
             {
                 SingInWindow.Visibility = Visibility.Hidden;
                 SingUpWindow.Visibility = Visibility.Hidden;
+                AutorizedWindow.Visibility = Visibility.Hidden;
+                ForgotPasswordWindow.Visibility = Visibility.Hidden;
+                SettingWindows.Visibility = Visibility.Visible;
+            }
+            if (e.Key == Key.F5)
+            {
+                SingInWindow.Visibility = Visibility.Hidden;
+                SingUpWindow.Visibility = Visibility.Hidden;
                 AutorizedWindow.Visibility = Visibility.Visible;
                 ForgotPasswordWindow.Visibility = Visibility.Hidden;
+                SettingWindows.Visibility = Visibility.Hidden;
             }
             if (e.Key == Key.Escape)
             {
-                if(ForgotPasswordWindow.Visibility == Visibility.Visible || SingUpWindow.Visibility == Visibility.Visible)
+                if (ForgotPasswordWindow.Visibility == Visibility.Visible || SingUpWindow.Visibility == Visibility.Visible)
                 {
 
-                SingInWindow.Visibility = Visibility.Visible;
-                SingUpWindow.Visibility = Visibility.Hidden;
-                AutorizedWindow.Visibility = Visibility.Hidden;
-                ForgotPasswordWindow.Visibility = Visibility.Hidden;
+                    SingInWindow.Visibility = Visibility.Visible;
+                    SingUpWindow.Visibility = Visibility.Hidden;
+                    AutorizedWindow.Visibility = Visibility.Hidden;
+                    ForgotPasswordWindow.Visibility = Visibility.Hidden;
                 }
+
+                //if (ForgotPasswordWindow.Visibility == Visibility.Visible || SingUpWindow.Visibility == Visibility.Visible)
+                //{
+                //}
             }
         }
 
@@ -173,6 +189,25 @@ namespace Client
         }
 
         private void SendPass_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+        private void AddLotButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void SettingButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void SingOutButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void ThemesButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
         }

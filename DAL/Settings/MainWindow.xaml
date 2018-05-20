@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Settings"
         mc:Ignorable="d"
         Title="Settings" Height="380" Width="525">
-    <Grid>
+    <Grid x:Name="SettingWindows">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="#FFF8F8F4" Offset="1"/>
@@ -55,19 +55,19 @@
                 </Grid>
             </Grid>
             <Grid Grid.Row="4">
-                <Grid Margin="10" Background="White"></Grid>
+                <Grid Margin="10" Background="White" Visibility="Hidden"></Grid>
             </Grid>
             <Grid Grid.Row="5">
-                <Grid Margin="10" Background="White"></Grid>
+                <Grid Margin="10" Background="White" Visibility="Hidden" ></Grid>
             </Grid>
             <Grid Grid.Row="6">
-                <Grid Margin="10" Background="White"></Grid>
+                <Grid Margin="10" Background="White" Visibility="Hidden"></Grid>
             </Grid>
             <Grid Grid.Row="7">
-                <Grid Margin="10" Background="White"></Grid>
+                <Grid Margin="10" Background="White" Visibility="Hidden"></Grid>
             </Grid>
             <Grid Grid.Row="8">
-                <Grid Margin="10" Background="White"></Grid>
+                <Grid Margin="10" Background="White" Visibility="Hidden"></Grid>
             </Grid>
         </Grid>
         <Grid Grid.Column="1">
