@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="ldeQCYnTG0/U7/LZbhahiaLkBp8=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="ryk8Wy/jyJ7XgwjrXX7TX+0sw0o=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IAuctionClient">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IAuctionClient" contract="ServiceReference1.IAuctionClient" bindingType="basicHttpBinding" address="http://10.7.34.4:8000/WorkWithMoney" bindingConfiguration="BasicHttpBinding_IAuctionClient">
+    <endpoint name="BasicHttpBinding_IAuctionClient" contract="ServiceReference1.IAuctionClient" bindingType="basicHttpBinding" address="http://10.7.26.4:8000/WorkWithMoney" bindingConfiguration="BasicHttpBinding_IAuctionClient">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://10.7.34.4:8000/WorkWithMoney</serializedValue>
+          <serializedValue>http://10.7.26.4:8000/WorkWithMoney</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

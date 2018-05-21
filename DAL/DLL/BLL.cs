@@ -299,23 +299,23 @@ namespace BLL
 
 	public class ServiceWork
 	{
-		public  void TellForPersonAboutStartLot()
-		{
-			Task.Run(() =>
-			{
-				using (AuctionContent db = new AuctionContent())
-				{
-					foreach (Lot elem in db.Lots.Where(elem => elem.TellPersonsAboutStart != null && elem.TimeStart >= DateTime.Now))
-					{
-						foreach (Person p in elem.TellPersonsAboutStart)
-						{
-							ClassWork.SendMessage(new Person() { Email = "miss.elizaveta@gmail.com", FirstName = "Not ", SecondName = "Empty" }, "Lot is start", "We want to tell you about start lot  " + elem.LotName + "Now", p);
-						}
-						elem.TellPersonsAboutStart = null;
-					}
-					db.SaveChanges();
-				}
-			});
-		}
-	}
+        public void TellForPersonAboutStartLot()
+        {
+            Task.Run(() =>
+            {
+                using (AuctionContent db = new AuctionContent())
+                {
+                    foreach (Lot elem in db.Lots.Where(elem => elem.TellPersonsAboutStart != null && elem.TimeStart >= DateTime.Now))
+                    {
+                        foreach (Person p in elem.TellPersonsAboutStart)
+                        {
+                            ClassWork.SendMessage(new Person() { Email = "miss.elizaveta@gmail.com", FirstName = "Not ", SecondName = "Empty" }, "Lot is start", "We want to tell you about start lot  " + elem.LotName + "Now", p);
+                        }
+                        elem.TellPersonsAboutStart = null;
+                    }
+                    db.SaveChanges();
+                }
+            });
+        }
+    }
 }

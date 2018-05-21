@@ -39,6 +39,8 @@ namespace WCF
 		int LastBet(int LotId);
         [OperationContract]
         Lot AboutLot(int LotId);
+        [OperationContract]
+        void SingOut();
 
     }
 
@@ -48,6 +50,11 @@ namespace WCF
 	public class AuctionClient : IAuctionClient
 	{
 		public Person person;
+
+        public void SingOut()
+        {
+            person = null;
+        }
 
         public Lot AboutLot(int LotId)
         {
@@ -67,7 +74,6 @@ namespace WCF
 				return "Input name and about";
 			if (ClassWork.AddLot(new Lot() { About = About, LotName = Name, StartPrice = StartPrice, TimeStart = Start, TimeFinish = Finish, Photo = Img }, person) == true)
 				return "Lot is add";
-            }
 			else return "Something wrong";
 		}
 
@@ -158,8 +164,8 @@ namespace WCF
 
 		public string TellMeAboutStartLot(int LotId)
 		{
-			if (ClassWork.TellMeAboutStartLot(person, LotId) == true)
-				return "All ok";
+			//if (ClassWork.TellMeAboutStartLot(person, LotId) == true)
+			//	return "All ok";
 			return "Somethimg wrong";
 		}
 
