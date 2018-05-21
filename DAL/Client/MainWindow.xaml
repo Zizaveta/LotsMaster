@@ -91,7 +91,7 @@
             </Grid>
         </Grid>
 
-        <Grid x:Name="SettingWindows" Loaded="SettingWindows_Loaded">
+        <Grid x:Name="SettingWindows" Loaded="SettingWindows_Loaded" Visibility="Hidden">
             <Grid.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFF8F8F4" Offset="1"/>
@@ -174,7 +174,7 @@
                             <ColumnDefinition Width="100"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Image Grid.Column="0" x:Name="Ph1"></Image>
+                        <Image Grid.Column="0" x:Name="Ph1" Tag="1" MouseLeftButtonDown="OpenLotWindowHandler"></Image>
                         <TextBlock Grid.Column="1" x:Name="SettingsImg1"></TextBlock>
                     </Grid>
                 </Grid>
@@ -190,7 +190,7 @@
                             <ColumnDefinition Width="100"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Image Grid.Column="0" x:Name="Ph2"></Image>
+                        <Image Grid.Column="0" x:Name="Ph2" Tag="2" MouseLeftButtonDown="OpenLotWindowHandler"></Image>
                         <TextBlock Grid.Column="1" x:Name="SettingsImg2"></TextBlock>
                     </Grid>
                 </Grid>
@@ -206,7 +206,7 @@
                             <ColumnDefinition Width="100"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Image Grid.Column="0" x:Name="Ph3"></Image>
+                        <Image Grid.Column="0" x:Name="Ph3" Tag="3" MouseLeftButtonDown="OpenLotWindowHandler"></Image>
                         <TextBlock Grid.Column="1" x:Name="SettingsImg3"></TextBlock>
                     </Grid>
                 </Grid>
@@ -222,7 +222,7 @@
                             <ColumnDefinition Width="100"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Image Grid.Column="0" x:Name="Ph4"></Image>
+                        <Image Grid.Column="0" x:Name="Ph4" Tag="4" MouseLeftButtonDown="OpenLotWindowHandler"></Image>
                         <TextBlock Grid.Column="1" x:Name="SettingsImg4"></TextBlock>
                     </Grid>
                 </Grid>
@@ -247,7 +247,7 @@
             </Grid>
         </Grid>
 
-        <Grid x:Name="AutorizedWindow" Visibility="Hidden">
+        <Grid x:Name="AutorizedWindow" >
         <Grid.Background>
             <RadialGradientBrush>
                 <GradientStop Color="#FF838384" Offset="1"/>
@@ -345,7 +345,7 @@
 
             <!--PlaceForLog-->
             <Grid Grid.Column="0" Margin="10,10,0,10">
-                <TextBlock Foreground="White" FontSize="18" Text="Bob 15$" FontWeight="Bold" TextDecorations="{x:Null}">
+                <TextBlock x:Name="LogWindow" Foreground="White" FontSize="18" Text="Bob 15$" FontWeight="Bold" TextDecorations="{x:Null}">
                     <TextBlock.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.75">
                             <GradientStop Color="#FF271141" Offset="0"/>
@@ -371,7 +371,7 @@
                     <!--image and info-->
 
                     <Grid  x:Name="GridImage" Visibility="Visible"  Margin="10"  >
-                        <Image Source="TempPhotoForTest/Lots4.jpg" >
+                        <Image x:Name="PhotoInfo" Source="TempPhotoForTest/Lots4.jpg" >
                             <Image.OpacityMask>
                                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                     <GradientStop Color="Black" Offset="0"/>

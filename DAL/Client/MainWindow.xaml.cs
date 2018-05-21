@@ -70,6 +70,7 @@ namespace Client
             //Get Image 
             //Get Current Price
 
+            //tag = id
             int i = 1;
             while(i!=5)
             {
@@ -259,6 +260,49 @@ namespace Client
         private void SettingWindows_Loaded(object sender, RoutedEventArgs e)
         {
             LoadInfoAboutAllLots();
+        }
+
+        private void OpenLotWindowHandler(object sender, MouseButtonEventArgs e)
+        {
+
+            int temp = Convert.ToInt32((sender as Image).Tag);
+            switch (temp)
+            {
+                // юзати autorizedwindow
+                case 1:
+                    {
+                        SingInWindow.Visibility = Visibility.Hidden;
+                        SingUpWindow.Visibility = Visibility.Hidden;
+                        ForgotPasswordWindow.Visibility = Visibility.Hidden;
+                        SettingWindows.Visibility = Visibility.Hidden;
+                        AutorizedWindow.Visibility = Visibility.Visible;
+                        //Name NameElement
+                        //Timer  TimeToEndElement
+                        //Photo PhotoInfo
+                        //TextInfo GridInfoTextBlock
+                        //Price CurrentPrice, який спочатку є стартовим
+                        //Log LogWindow
+
+
+
+
+                    }
+                    break;
+                case 2:
+                    {
+                   
+                    } break;
+                case 3:
+                    {
+                   
+                    } break;
+                case 4:
+                    {
+
+                    }
+                    break;
+                default: break;
+            }
         }
     }
 }
