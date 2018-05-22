@@ -1,0 +1,59 @@
+﻿<Window x:Class="AddLot.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AddLot"
+        mc:Ignorable="d"
+        Title="AddLot" Height="380" Width="525">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFF8F8F4" Offset="1"/>
+                <GradientStop Color="#FF8DA4DD" Offset="0.003"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid Margin="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="90"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBox Grid.Row="0" x:Name="textBox" TextAlignment="Center" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="Name" VerticalAlignment="Center" Width="400"/>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" x:Name="image" Height="60" Width="100"/>
+                    <Button Grid.Row="1" x:Name="button" Content="Choose file ..." HorizontalAlignment="Center" VerticalAlignment="Center" Width="90"/>
+                </Grid>
+                <TextBox Grid.Column="1" x:Name="textBox1" TextWrapping="Wrap" Text=""/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <DatePicker Grid.Column="0" HorizontalAlignment="Left"/>
+                <DatePicker Grid.Column="1" HorizontalAlignment="Left"/>
+                <TextBox Grid.Column="0" x:Name="StartTime" HorizontalAlignment="Right" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+                <TextBox Grid.Column="1" x:Name="StopTime" HorizontalAlignment="Right" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" x:Name="StartPrice" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="StartPrice" VerticalAlignment="Center" Width="120"/>
+                <Button Grid.Column="1" x:Name="button1" Content="Go" HorizontalAlignment="Center" VerticalAlignment="Center" Width="75"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
