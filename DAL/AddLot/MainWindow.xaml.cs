@@ -23,7 +23,12 @@ namespace AddLot
         public MainWindow()
         {
             InitializeComponent();
-            StartTime.Text = string.Format("{0} {1}:{2}", DateTime.Now.ToLongTimeString(), DateTime.Now.Millisecond);
+            DateTime dt = new DateTime();
+            while (true)
+            {
+                StartTime.Text = dt.ToString();
+                StopTime.Text = dt.ToString();
+            }
         }
     }
 }
