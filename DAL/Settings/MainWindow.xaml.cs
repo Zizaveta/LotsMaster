@@ -43,7 +43,12 @@ namespace Settings
 
         private void ThemesButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            GridThemes.Visibility = Visibility.Visible;
+        }
 
+        private void ThemesButton_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            GridThemes.Visibility = Visibility.Hidden;
         }
     }
 }

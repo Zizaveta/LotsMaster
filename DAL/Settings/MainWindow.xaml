@@ -29,8 +29,7 @@
                 <RowDefinition Height="1*"></RowDefinition>
                 <RowDefinition Height="1*"></RowDefinition>
                 <RowDefinition Height="1*"></RowDefinition>
-                <RowDefinition Height="1*"></RowDefinition>
-                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
                 <RowDefinition Height="1*"></RowDefinition>
                 <RowDefinition Height="1*"></RowDefinition>
             </Grid.RowDefinitions>
@@ -51,22 +50,35 @@
             </Grid>
             <Grid Grid.Row="3">
                 <Grid Margin="10" Background="White">
-                    <TextBlock x:Name="ThemesButton" MouseLeftButtonDown="ThemesButton_MouseLeftButtonDown" TextAlignment="Center" Text="Themes" FontStyle="Italic" FontWeight="Bold" FontSize="18"></TextBlock>
+                    <TextBlock x:Name="ThemesButton" MouseLeftButtonDown="ThemesButton_MouseLeftButtonDown" TextAlignment="Center" Text="Themes" FontStyle="Italic" FontWeight="Bold" FontSize="18" MouseLeftButtonUp="ThemesButton_MouseLeftButtonUp"></TextBlock>
                 </Grid>
             </Grid>
             <Grid Grid.Row="4">
-                <Grid Margin="10" Background="White" Visibility="Hidden"></Grid>
+                <Grid x:Name="GridThemes" Margin="10" Visibility="Hidden">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0" Grid.Row="0" Background="Aqua"></Grid>
+                    <Grid Grid.Column="1" Grid.Row="0" Background="Green"></Grid>
+                    <Grid Grid.Column="2" Grid.Row="0" Background="Red"></Grid>
+                    <Grid Grid.Column="3" Grid.Row="0" Background="Yellow"></Grid>
+                    <Grid Grid.Column="0" Grid.Row="1" Background="Blue"></Grid>
+                    <Grid Grid.Column="1" Grid.Row="1" Background="White"></Grid>
+                    <Grid Grid.Column="2" Grid.Row="1" Background="Brown"></Grid>
+                    <Grid Grid.Column="3" Grid.Row="1" Background="Violet"></Grid>
+                </Grid>
             </Grid>
             <Grid Grid.Row="5">
-                <Grid Margin="10" Background="White" Visibility="Hidden" ></Grid>
+                <Grid Margin="10" Background="White" Visibility="Hidden"></Grid>
             </Grid>
             <Grid Grid.Row="6">
-                <Grid Margin="10" Background="White" Visibility="Hidden"></Grid>
-            </Grid>
-            <Grid Grid.Row="7">
-                <Grid Margin="10" Background="White" Visibility="Hidden"></Grid>
-            </Grid>
-            <Grid Grid.Row="8">
                 <Grid Margin="10" Background="White" Visibility="Hidden"></Grid>
             </Grid>
         </Grid>
