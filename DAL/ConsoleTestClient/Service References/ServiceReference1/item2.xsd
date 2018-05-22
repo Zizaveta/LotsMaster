@@ -8,6 +8,8 @@
         <xs:element minOccurs="0" name="SecondName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Gender" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Img" nillable="true" type="xs:base64Binary" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -41,7 +43,7 @@
         <xs:element minOccurs="0" name="StartPrice" type="xs:int" />
         <xs:element minOccurs="0" name="Start" type="xs:dateTime" />
         <xs:element minOccurs="0" name="Finish" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="Img" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Img" nillable="true" type="xs:base64Binary" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -79,6 +81,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="AllLots">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AllLotsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DAL" minOccurs="0" name="AllLotsResult" nillable="true" type="q2:ArrayOfLot" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="FutureLots">
     <xs:complexType>
       <xs:sequence />
@@ -87,7 +101,7 @@
   <xs:element name="FutureLotsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DAL" minOccurs="0" name="FutureLotsResult" nillable="true" type="q2:ArrayOfLot" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DAL" minOccurs="0" name="FutureLotsResult" nillable="true" type="q3:ArrayOfLot" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -99,7 +113,7 @@
   <xs:element name="NowLotsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DAL" minOccurs="0" name="NowLotsResult" nillable="true" type="q3:ArrayOfLot" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DAL" minOccurs="0" name="NowLotsResult" nillable="true" type="q4:ArrayOfLot" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -122,7 +136,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="Thema" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DAL" minOccurs="0" name="to" nillable="true" type="q4:Person" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DAL" minOccurs="0" name="to" nillable="true" type="q5:Person" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -182,8 +196,18 @@
   <xs:element name="AboutLotResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DAL" minOccurs="0" name="AboutLotResult" nillable="true" type="q5:Lot" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/DAL" minOccurs="0" name="AboutLotResult" nillable="true" type="q6:Lot" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SingOut">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SingOutResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

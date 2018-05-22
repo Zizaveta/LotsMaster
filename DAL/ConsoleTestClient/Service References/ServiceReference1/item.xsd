@@ -12,9 +12,9 @@
       <xs:element minOccurs="0" name="History" nillable="true" type="tns:ArrayOfLotHistory" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="LotName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Photo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Photo" nillable="true" type="xs:base64Binary" />
       <xs:element minOccurs="0" name="StartPrice" type="xs:int" />
-      <xs:element minOccurs="0" name="TellPersonsAboutStart" nillable="true" type="tns:ArrayOfPerson" />
+      <xs:element minOccurs="0" name="Tells" nillable="true" type="tns:ArrayOfTell" />
       <xs:element minOccurs="0" name="TimeFinish" type="xs:dateTime" />
       <xs:element minOccurs="0" name="TimeStart" type="xs:dateTime" />
       <xs:element minOccurs="0" name="WhoSale" nillable="true" type="tns:Person" />
@@ -43,17 +43,26 @@
       <xs:element minOccurs="0" name="Gender" type="xs:boolean" />
       <xs:element minOccurs="0" name="Histories" nillable="true" type="tns:ArrayOfLotHistory" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Image" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Image" nillable="true" type="xs:base64Binary" />
       <xs:element minOccurs="0" name="Lots" nillable="true" type="tns:ArrayOfLot" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="SecondName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tells" nillable="true" type="tns:ArrayOfTell" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Person" nillable="true" type="tns:Person" />
-  <xs:complexType name="ArrayOfPerson">
+  <xs:complexType name="ArrayOfTell">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Person" nillable="true" type="tns:Person" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Tell" nillable="true" type="tns:Tell" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfPerson" nillable="true" type="tns:ArrayOfPerson" />
+  <xs:element name="ArrayOfTell" nillable="true" type="tns:ArrayOfTell" />
+  <xs:complexType name="Tell">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Lot" nillable="true" type="tns:Lot" />
+      <xs:element minOccurs="0" name="Person" nillable="true" type="tns:Person" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Tell" nillable="true" type="tns:Tell" />
 </xs:schema>

@@ -14,16 +14,18 @@ namespace WCF
 	public interface IAuctionClient
 	{
 		[OperationContract]
-		string AddPerson(string FirstName, string SecondName, string Email, string Password);
+		string AddPerson(string FirstName, string SecondName,  string Email, string Password, bool Gender = false, byte[] Img = null);
 		[OperationContract]
 		string Authorization(string email, string password);
-		[OperationContract]
-		string AddLot(string Name, string About, int StartPrice, DateTime Start, DateTime Finish, string Img = null);
-		[OperationContract]
+        [OperationContract]
+        string AddLot(string Name, string About, int StartPrice, DateTime Start, DateTime Finish,byte[] Img = null);
+        [OperationContract]
 		string Bet(int lotId, int money);
 		[OperationContract]
 		List<Lot> OldLots();
-		[OperationContract]
+        [OperationContract]
+        List<Lot> AllLots();
+        [OperationContract]
 		List<Lot> FutureLots();
 		[OperationContract]
 		List<Lot> NowLots();
@@ -62,7 +64,7 @@ namespace WCF
         }
 
 
-        public string AddLot(string Name, string About, int StartPrice, DateTime Start, DateTime Finish, string Img = null)
+        public string AddLot(string Name, string About, int StartPrice, DateTime Start, DateTime Finish, byte[] Img = null)
 		{
 			if (person == null)
 				return "Authorization!!!";
@@ -77,7 +79,7 @@ namespace WCF
 			else return "Something wrong";
 		}
 
-		public string AddPerson(string FirstName, string SecondName, string Email, string Password)
+        public string AddPerson(string FirstName, string SecondName, string Email, string Password, bool Gender = false, byte[] Img =  null)
 		{
 			if (Email.Length < 8 || Email.Contains("@") == false || Email.Contains(".") == false)
 				return "Wrong email";
@@ -85,10 +87,7 @@ namespace WCF
 				return "Password must have minimum 8 sumvols";
 			if (FirstName.Length == 0 || SecondName.Length == 0)
 				return "You need input FirstName and SecondName";
-			if (ClassWork.AddPerson(new Person() { Email = Email, Password = Password, FirstName = FirstName, SecondName = SecondName }) == true)
-				return "Person is create";
-			else return "Email  was in db or something wrong";
-
+            return ClassWork.AddPerson(new Person() { Email = Email, Password = Password, FirstName = FirstName, SecondName = SecondName, Gender = Gender, Image = Img });
 		}
 
 		public string Authorization(string email, string password)
@@ -103,9 +102,7 @@ namespace WCF
 		{
 			if (person == null)
 				return "Authorization!!!";
-			if (ClassWork.Bet(person, lotId, money) == true)
-				return "All ok";
-			return "Something wrong";
+            return ClassWork.Bet(person, lotId, money);
 				
 		}
 
@@ -116,42 +113,76 @@ namespace WCF
 
 		public List<Lot> FutureLots()
 		{
-			List<Lot> Lots = ClassWork.FutureLots();
-			foreach(Lot lot in Lots)
-			{
-                lot.WhoSale.Password = null;
-                lot.History = null;
-				lot.TellPersonsAboutStart = null;
-			}
-			return Lots;
+            try
+            {
+                //List<Lot> Lots = ClassWork.FutureLots();
+                //foreach (Lot lot in Lots)
+                //{
+                //    lot.WhoSale.Password = null;
+                //    lot.History = null;
+                //    lot.Tells = null;
+                //    Log.Logger(lot.LotName);
+                //}
+                //return Lots;
+                return ClassWork.FutureLots();
+            }
+            catch(Exception ex)
+            {
+                Log.Logger(ex.Message);
+                return null;
+            }
 		}
 
 		public List<Lot> NowLots()
 		{
-            List<Lot> Lots = ClassWork.NowLots();
-            if (Lots.Count < 5)
-                Lots.AddRange(ClassWork.FutureLots());
-            foreach (Lot lot in Lots)
-			{
-                lot.WhoSale.Password = null;
-				lot.History = null;
-				lot.TellPersonsAboutStart = null;
-			}
-			return Lots;
+            try
+            {
+                //List<Lot> Lots = ClassWork.NowLots();
+
+                //foreach (Lot lot in Lots)
+                //{
+                //    lot.WhoSale.Password = null;
+                //    lot.History = null;
+                //    lot.Tells = null;
+                //    Log.Logger(lot.LotName);
+                //}
+                //return Lots;
+                return ClassWork.NowLots();
+            }
+            catch(Exception ex)
+            {
+                Log.Logger(ex.Message);
+                return null;
+            }
 		}
 
 		public List<Lot> OldLots()
 		{
-			List<Lot> Lots = ClassWork.OldLots();
-			foreach (Lot lot in Lots)
-			{
-                lot.WhoSale.Password = null;
-                lot.History = null;
-				lot.TellPersonsAboutStart = null;
-			}
-			return Lots;
-		}
+            try
+            {
+                //List<Lot> Lots = ClassWork.OldLots();
+                //foreach (Lot lot in Lots)
+                //{
+                //    lot.WhoSale.Password = null;
+                //    lot.History = null;
+                //    lot.Tells = null;
+                //    Log.Logger(lot.LotName);
+                //}
+                //return Lots;
 
+                return ClassWork.OldLots();
+            }
+            catch (Exception ex)
+            {
+                Log.Logger(ex.Message);
+                return null;
+            }
+        }
+
+        public List<Lot> AllLots()
+        {
+            return ClassWork.AllLots();
+        }
 		public string LotHistory(int LotId)
 		{
 			return ClassWork.LotHistory(LotId);
@@ -164,9 +195,7 @@ namespace WCF
 
 		public string TellMeAboutStartLot(int LotId)
 		{
-			//if (ClassWork.TellMeAboutStartLot(person, LotId) == true)
-			//	return "All ok";
-			return "Somethimg wrong";
+			return ClassWork.TellMeAboutStartLot(person, LotId);
 		}
 
 		public int LastBet(int LotId)

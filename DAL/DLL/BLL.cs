@@ -12,28 +12,30 @@ namespace BLL
 {
     public class ClassWork 
     {
-		public static bool AddPerson(Person person)
+		public static string AddPerson(Person person)
 		{
 			try
 			{
 					using (AuctionContent db = new AuctionContent())
 					{
-					
-						if (db.Persons.FirstOrDefault(elem => elem.Email == person.Email) == null)
-						{
-							db.Persons.Add(person);
-							db.SaveChanges();
-                        Log.Logger("Person add");
-							return true;
-						}
-						return false;
+
+                    if (db.Persons.FirstOrDefault(elem => elem.Email == person.Email) != null)
+                    {
+                        return "This email is in db";
+                    }
+                    else
+                    {
+                        db.Persons.Add(person);
+                        db.SaveChanges();
+                        return "Peron add";
+                    }
 					
 				}
 			}
 			catch(Exception ex)
 			{
 				Log.Logger(ex.Message);
-				return false;
+				return "Wrong in db";
 			}
 		}
 		public static Person Authorization(string email, string password)
@@ -59,10 +61,11 @@ namespace BLL
 				{
                     db.Persons.Attach(p);
                     lot.WhoSale = p;
-                    //message
 					db.Lots.Add(lot);
 					db.SaveChanges();
-					return true;
+                    ServiceWork.TellMeAboutStartLot(lot);
+                    SendMessage(db.Persons.First(), "Auction", "Your lot is add in db", p);
+                    return true;
 				}
 			}
 			catch (Exception ex)
@@ -71,29 +74,32 @@ namespace BLL
 				return false;
 			}
 		}
-		public static bool Bet(Person p, int lotId, int money)
+		public static string Bet(Person p, int lotId, int money)
 		{
 			try
 			{
 				using (AuctionContent db = new AuctionContent())
 				{
-					if (db.Lots.FirstOrDefault(elem => elem.Id == lotId) == null)
-						return false;
-					if (db.Lots.FirstOrDefault(elem => elem.Id == lotId).History.Last().Money > money)
-						return false;
-					if (db.Lots.FirstOrDefault(elem => elem.Id == lotId).TimeFinish < DateTime.Now)
-						return false;
+                    db.Persons.Attach(p);
+                    if (db.Lots.FirstOrDefault(elem => elem.Id == lotId) == null)
+						return "Wrong id of lot";
+                    if (db.Lots.FirstOrDefault(elem => elem.Id == lotId).History.Last().Money > money)
+                        return "Small bet";
+                    if (db.Lots.FirstOrDefault(elem => elem.Id == lotId).TimeFinish < DateTime.Now)
+                        return "Lot is finished";
 					if (db.Lots.FirstOrDefault(elem => elem.Id == lotId).TimeStart > DateTime.Now)
-						return false;
-						db.History.Add(new LotHistory() { Persson = p, Money = money, Lot = db.Lots.FirstOrDefault(elem => elem.Id == lotId) });
+						return "Lot is not start";
+                    LotHistory l = new LotHistory() { Persson = p, Money = money, Lot = db.Lots.FirstOrDefault(elem => elem.Id == lotId) };
+                    db.History.Add(l);
+                    db.Lots.First(elem => elem.Id == lotId).History.Add(l);
 					db.SaveChanges();
-					return true;
+                    return "Lot is create";
 				}
 			}
 			catch (Exception ex)
 			{
 				Log.Logger(ex.Message);
-				return false;
+				return "Something wrong with db";
 			}
 		}
 		public static List<Lot> OldLots()
@@ -117,7 +123,8 @@ namespace BLL
 			{
 				using (AuctionContent db = new AuctionContent())
 				{
-					return db.Lots.Where(elem => elem.TimeStart > DateTime.Now).OrderBy(elem => elem.TimeStart).ToList();
+                    //return db.Lots.Where(elem => elem.TimeStart > DateTime.Now).OrderBy(elem => elem.TimeStart).ToList();
+                    return db.Lots.ToList();
                 }
 			}
 			catch (Exception ex)
@@ -141,60 +148,28 @@ namespace BLL
 				return null;
 			}
 		}
-        //public static bool TellMeAboutStartLot(Person person, int lotId)
-        //{
-        //	try
-        //	{
-        //		using (AuctionContent db = new AuctionContent())
-        //		{
-        //			if (db.Lots.First(elem => elem.Id == lotId).TimeStart <= DateTime.Now)
-        //				return false;
-        //			if (db.Lots.First(elem => elem.Id == lotId).TellPersonsAboutStart.Contains(person) == false)
-        //			{
-        //				db.Lots.First(elem => elem.Id == lotId).TellPersonsAboutStart.Add(person);
-        //				db.SaveChanges();
-        //			}
-        //			return true;
-        //		}
-        //	}
-        //	catch(Exception ex)
-        //	{
-        //		Log.Logger(ex.Message);
-        //		return false;
-        //	}
-        //}
-        
-        public static void TellMeAboutStartLot(Lot temp)
+        public static string TellMeAboutStartLot(Person person, int lotId)
         {
             try
             {
-             DispatcherTimer timer = new DispatcherTimer();
-                EventArgs ea = new EventArgs();
-                timer.Tick += Timer_Tick;
-                DateTime dt1 = temp.TimeStart;
-                DateTime dt2 = temp.TimeFinish;
-                TimeSpan ts = dt2 - dt1;
-                timer.Interval = ts;
-                timer.Start();
-
+                using (AuctionContent db = new AuctionContent())
+                {
+                    if (db.Lots.First(elem => elem.Id == lotId).TimeStart <= DateTime.Now)
+                        return "Lot was started";
+                    if (db.Tells.FirstOrDefault(elem => elem.Lot.Id == lotId && elem.Person.Id == person.Id)==null)
+                    {
+                        db.Tells.Add(new Tell() { Person = person, Lot = db.Lots.First(elem => elem.Id==lotId) });
+                        db.SaveChanges();
+                    }
+                    return "You will know about start event";
+                }
             }
             catch (Exception ex)
             {
                 Log.Logger(ex.Message);
+                return "Something wrong in db";
             }
-
         }
-
-        private static void Timer_Tick(object sender, EventArgs e)
-        {
-            //пройтися циклом і повідомити людей
-            //for
-            //db.Lots.First(elem => elem.Id == lotId).TellPersonsAboutStart.Add(person);
-            ((DispatcherTimer)sender).Stop();
-        }
-
-        //Треба ліст людей
-
         public static void SendMessage(Person from, string Thema, string Message, Person to)
 		{
 			Task.Run(() =>
@@ -222,7 +197,7 @@ namespace BLL
 			{
 				using (AuctionContent db = new AuctionContent())
 				{
-					ClassWork.SendMessage(new Person() { Email = "miss.elizaveta@gmail.com", FirstName = "Not", SecondName = "Name" }, "ForgetPassword", "Your password: " + db.Persons.First(elem => elem.Email == email && elem.FirstName == FN).Password, db.Persons.First(elem => elem.Email == email));
+					SendMessage(db.Persons.First(), "ForgetPassword", "Your password: " + db.Persons.First(elem => elem.Email == email && elem.FirstName == FN).Password, db.Persons.First(elem => elem.Email == email));
 					return true;
 				}
 			}
@@ -277,16 +252,25 @@ namespace BLL
                     Lot l =  db.Lots.FirstOrDefault(elem => elem.Id == LotId);
                     l.WhoSale.Password = null;
                     l.History = null;
-                    foreach (Person elem in l.TellPersonsAboutStart)
-                    {
-                        elem.Lots = null;
-                        elem.Password = null;
-                        elem.Histories = null;
-                    }
                     return l;
                 }
             }
             catch(Exception ex)
+            {
+                Log.Logger(ex.Message);
+                return null;
+            }
+        }
+        public static List<Lot> AllLots()
+        {
+            try
+            {
+                using (AuctionContent db = new AuctionContent())
+                {
+                    return db.Lots.ToList();
+                }
+            }
+            catch (Exception ex)
             {
                 Log.Logger(ex.Message);
                 return null;
@@ -299,21 +283,48 @@ namespace BLL
 
 	public class ServiceWork
 	{
-        public void TellForPersonAboutStartLot()
+        //треба ліст піпл
+        public static void TellMeAboutStartLot(Lot temp)
+        {
+            try
+            {
+                DispatcherTimer timer = new DispatcherTimer();
+                EventArgs ea = new EventArgs();
+                timer.Tick += Timer_Tick;
+                DateTime dt1 = DateTime.Now;
+                DateTime dt2 = temp.TimeStart;
+                TimeSpan ts = dt2 - dt1;
+                //DateTime dt1 = temp.TimeStart;
+                //DateTime dt2 = temp.TimeFinish;
+                //TimeSpan ts = dt2 - dt1;
+                timer.Interval = ts;
+                timer.Start();
+
+            }
+            catch (Exception ex)
+            {
+                Log.Logger(ex.Message);
+            }
+
+        }
+        private static void Timer_Tick(object sender, EventArgs e)
+        {
+            //пройтися циклом і повідомити людей
+            //for
+            //db.Lots.First(elem => elem.Id == lotId).TellPersonsAboutStart.Add(person);
+            ServiceWork.TellForPersonAboutStartLot();
+            ((DispatcherTimer)sender).Stop();
+        }
+        public static void TellForPersonAboutStartLot()
         {
             Task.Run(() =>
             {
                 using (AuctionContent db = new AuctionContent())
                 {
-                    foreach (Lot elem in db.Lots.Where(elem => elem.TellPersonsAboutStart != null && elem.TimeStart >= DateTime.Now))
+                    foreach (Tell elem in db.Tells.Where(elem => elem.Lot.TimeStart >= DateTime.Now))
                     {
-                        foreach (Person p in elem.TellPersonsAboutStart)
-                        {
-                            ClassWork.SendMessage(new Person() { Email = "miss.elizaveta@gmail.com", FirstName = "Not ", SecondName = "Empty" }, "Lot is start", "We want to tell you about start lot  " + elem.LotName + "Now", p);
-                        }
-                        elem.TellPersonsAboutStart = null;
+                            ClassWork.SendMessage(db.Persons.First(), "Lot is start", "We want to tell you about start lot  " + elem.Lot.LotName + " NOW!!!", elem.Person);
                     }
-                    db.SaveChanges();
                 }
             });
         }

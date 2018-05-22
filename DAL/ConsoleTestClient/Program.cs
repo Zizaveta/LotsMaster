@@ -6,19 +6,40 @@ using System.Threading.Tasks;
 using ConsoleTestClient.ServiceReference1;
 namespace ConsoleTestClient
 {
-	class Program
-	{
-		static void Main(string[] args)
-		{
-			AuctionClientClient client = new AuctionClientClient();
-			//	Console.WriteLine(	 client.AddPerson("Liza", "Rengan", "miss.elizaveta.rengan@gmail.com", "12345678"));
-				
-			Console.WriteLine(client.Authorization("miss.elizaveta.rengan@gmail.com", "12345678"));
-            Console.WriteLine(client.AddLot("Автомобіль ВАЗ413 ", "Стан хороший. 23л", 2200, new DateTime(2018, 06,18,21,52,0), new DateTime(2018, 06,21, 20,0,0),"TempPhotoForTest/Lots"));
-            foreach (Lot elem in client.FutureLots())
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            try
             {
-                Console.WriteLine(elem.LotName);
+                AuctionClientClient client = new AuctionClientClient();
+                //Console.WriteLine(	 client.AddPerson("Liza", "Rengan", "miss.elizaveta.rengan@gmail.com", "12345678", false, null));
+
+                Console.WriteLine(client.Authorization("miss.elizaveta.rengan@gmail.com", "12345678"));
+                // Console.WriteLine(client.AddLot("Автомобіль ВАЗ413 ", "Стан хороший. 23л", 2200, new DateTime(2018, 06,18,21,52,0), new DateTime(2018, 06,21, 20,0,0), null ));
+
+                foreach (Lot elem in client.FutureLots())
+                {
+                    Console.WriteLine(elem.LotName);
+                }
+                //foreach (Lot elem in client.NowLots())
+                //{
+                //    Console.WriteLine(elem);
+                //}
+                //foreach (Lot elem in client.OldLots())
+                //{
+                //    Console.WriteLine(elem);
+                //}
+
             }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+
         }
-	}
+
+    }
 }

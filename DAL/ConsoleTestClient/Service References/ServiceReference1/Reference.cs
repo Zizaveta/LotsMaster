@@ -35,13 +35,13 @@ namespace ConsoleTestClient.ServiceReference1 {
         private string LotNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PhotoField;
+        private byte[] PhotoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int StartPriceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ConsoleTestClient.ServiceReference1.Person[] TellPersonsAboutStartField;
+        private ConsoleTestClient.ServiceReference1.Tell[] TellsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime TimeFinishField;
@@ -115,7 +115,7 @@ namespace ConsoleTestClient.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Photo {
+        public byte[] Photo {
             get {
                 return this.PhotoField;
             }
@@ -141,14 +141,14 @@ namespace ConsoleTestClient.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public ConsoleTestClient.ServiceReference1.Person[] TellPersonsAboutStart {
+        public ConsoleTestClient.ServiceReference1.Tell[] Tells {
             get {
-                return this.TellPersonsAboutStartField;
+                return this.TellsField;
             }
             set {
-                if ((object.ReferenceEquals(this.TellPersonsAboutStartField, value) != true)) {
-                    this.TellPersonsAboutStartField = value;
-                    this.RaisePropertyChanged("TellPersonsAboutStart");
+                if ((object.ReferenceEquals(this.TellsField, value) != true)) {
+                    this.TellsField = value;
+                    this.RaisePropertyChanged("Tells");
                 }
             }
         }
@@ -227,7 +227,7 @@ namespace ConsoleTestClient.ServiceReference1 {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ImageField;
+        private byte[] ImageField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private ConsoleTestClient.ServiceReference1.Lot[] LotsField;
@@ -237,6 +237,9 @@ namespace ConsoleTestClient.ServiceReference1 {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SecondNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ConsoleTestClient.ServiceReference1.Tell[] TellsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -314,7 +317,7 @@ namespace ConsoleTestClient.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Image {
+        public byte[] Image {
             get {
                 return this.ImageField;
             }
@@ -361,6 +364,19 @@ namespace ConsoleTestClient.ServiceReference1 {
                 if ((object.ReferenceEquals(this.SecondNameField, value) != true)) {
                     this.SecondNameField = value;
                     this.RaisePropertyChanged("SecondName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ConsoleTestClient.ServiceReference1.Tell[] Tells {
+            get {
+                return this.TellsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TellsField, value) != true)) {
+                    this.TellsField = value;
+                    this.RaisePropertyChanged("Tells");
                 }
             }
         }
@@ -468,15 +484,92 @@ namespace ConsoleTestClient.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Tell", Namespace="http://schemas.datacontract.org/2004/07/DAL")]
+    [System.SerializableAttribute()]
+    public partial class Tell : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ConsoleTestClient.ServiceReference1.Lot LotField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ConsoleTestClient.ServiceReference1.Person PersonField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ConsoleTestClient.ServiceReference1.Lot Lot {
+            get {
+                return this.LotField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LotField, value) != true)) {
+                    this.LotField = value;
+                    this.RaisePropertyChanged("Lot");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ConsoleTestClient.ServiceReference1.Person Person {
+            get {
+                return this.PersonField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PersonField, value) != true)) {
+                    this.PersonField = value;
+                    this.RaisePropertyChanged("Person");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IAuctionClient")]
     public interface IAuctionClient {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/AddPerson", ReplyAction="http://tempuri.org/IAuctionClient/AddPersonResponse")]
-        string AddPerson(string FirstName, string SecondName, string Email, string Password);
+        string AddPerson(string FirstName, string SecondName, string Email, string Password, bool Gender, byte[] Img);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/AddPerson", ReplyAction="http://tempuri.org/IAuctionClient/AddPersonResponse")]
-        System.Threading.Tasks.Task<string> AddPersonAsync(string FirstName, string SecondName, string Email, string Password);
+        System.Threading.Tasks.Task<string> AddPersonAsync(string FirstName, string SecondName, string Email, string Password, bool Gender, byte[] Img);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/Authorization", ReplyAction="http://tempuri.org/IAuctionClient/AuthorizationResponse")]
         string Authorization(string email, string password);
@@ -485,10 +578,10 @@ namespace ConsoleTestClient.ServiceReference1 {
         System.Threading.Tasks.Task<string> AuthorizationAsync(string email, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/AddLot", ReplyAction="http://tempuri.org/IAuctionClient/AddLotResponse")]
-        string AddLot(string Name, string About, int StartPrice, System.DateTime Start, System.DateTime Finish, string Img);
+        string AddLot(string Name, string About, int StartPrice, System.DateTime Start, System.DateTime Finish, byte[] Img);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/AddLot", ReplyAction="http://tempuri.org/IAuctionClient/AddLotResponse")]
-        System.Threading.Tasks.Task<string> AddLotAsync(string Name, string About, int StartPrice, System.DateTime Start, System.DateTime Finish, string Img);
+        System.Threading.Tasks.Task<string> AddLotAsync(string Name, string About, int StartPrice, System.DateTime Start, System.DateTime Finish, byte[] Img);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/Bet", ReplyAction="http://tempuri.org/IAuctionClient/BetResponse")]
         string Bet(int lotId, int money);
@@ -501,6 +594,12 @@ namespace ConsoleTestClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/OldLots", ReplyAction="http://tempuri.org/IAuctionClient/OldLotsResponse")]
         System.Threading.Tasks.Task<ConsoleTestClient.ServiceReference1.Lot[]> OldLotsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/AllLots", ReplyAction="http://tempuri.org/IAuctionClient/AllLotsResponse")]
+        ConsoleTestClient.ServiceReference1.Lot[] AllLots();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/AllLots", ReplyAction="http://tempuri.org/IAuctionClient/AllLotsResponse")]
+        System.Threading.Tasks.Task<ConsoleTestClient.ServiceReference1.Lot[]> AllLotsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/FutureLots", ReplyAction="http://tempuri.org/IAuctionClient/FutureLotsResponse")]
         ConsoleTestClient.ServiceReference1.Lot[] FutureLots();
@@ -549,6 +648,12 @@ namespace ConsoleTestClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/AboutLot", ReplyAction="http://tempuri.org/IAuctionClient/AboutLotResponse")]
         System.Threading.Tasks.Task<ConsoleTestClient.ServiceReference1.Lot> AboutLotAsync(int LotId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/SingOut", ReplyAction="http://tempuri.org/IAuctionClient/SingOutResponse")]
+        void SingOut();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/SingOut", ReplyAction="http://tempuri.org/IAuctionClient/SingOutResponse")]
+        System.Threading.Tasks.Task SingOutAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -578,12 +683,12 @@ namespace ConsoleTestClient.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public string AddPerson(string FirstName, string SecondName, string Email, string Password) {
-            return base.Channel.AddPerson(FirstName, SecondName, Email, Password);
+        public string AddPerson(string FirstName, string SecondName, string Email, string Password, bool Gender, byte[] Img) {
+            return base.Channel.AddPerson(FirstName, SecondName, Email, Password, Gender, Img);
         }
         
-        public System.Threading.Tasks.Task<string> AddPersonAsync(string FirstName, string SecondName, string Email, string Password) {
-            return base.Channel.AddPersonAsync(FirstName, SecondName, Email, Password);
+        public System.Threading.Tasks.Task<string> AddPersonAsync(string FirstName, string SecondName, string Email, string Password, bool Gender, byte[] Img) {
+            return base.Channel.AddPersonAsync(FirstName, SecondName, Email, Password, Gender, Img);
         }
         
         public string Authorization(string email, string password) {
@@ -594,11 +699,11 @@ namespace ConsoleTestClient.ServiceReference1 {
             return base.Channel.AuthorizationAsync(email, password);
         }
         
-        public string AddLot(string Name, string About, int StartPrice, System.DateTime Start, System.DateTime Finish, string Img) {
+        public string AddLot(string Name, string About, int StartPrice, System.DateTime Start, System.DateTime Finish, byte[] Img) {
             return base.Channel.AddLot(Name, About, StartPrice, Start, Finish, Img);
         }
         
-        public System.Threading.Tasks.Task<string> AddLotAsync(string Name, string About, int StartPrice, System.DateTime Start, System.DateTime Finish, string Img) {
+        public System.Threading.Tasks.Task<string> AddLotAsync(string Name, string About, int StartPrice, System.DateTime Start, System.DateTime Finish, byte[] Img) {
             return base.Channel.AddLotAsync(Name, About, StartPrice, Start, Finish, Img);
         }
         
@@ -616,6 +721,14 @@ namespace ConsoleTestClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task<ConsoleTestClient.ServiceReference1.Lot[]> OldLotsAsync() {
             return base.Channel.OldLotsAsync();
+        }
+        
+        public ConsoleTestClient.ServiceReference1.Lot[] AllLots() {
+            return base.Channel.AllLots();
+        }
+        
+        public System.Threading.Tasks.Task<ConsoleTestClient.ServiceReference1.Lot[]> AllLotsAsync() {
+            return base.Channel.AllLotsAsync();
         }
         
         public ConsoleTestClient.ServiceReference1.Lot[] FutureLots() {
@@ -680,6 +793,14 @@ namespace ConsoleTestClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task<ConsoleTestClient.ServiceReference1.Lot> AboutLotAsync(int LotId) {
             return base.Channel.AboutLotAsync(LotId);
+        }
+        
+        public void SingOut() {
+            base.Channel.SingOut();
+        }
+        
+        public System.Threading.Tasks.Task SingOutAsync() {
+            return base.Channel.SingOutAsync();
         }
     }
 }

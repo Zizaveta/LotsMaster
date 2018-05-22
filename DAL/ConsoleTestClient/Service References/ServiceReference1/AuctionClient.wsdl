@@ -37,6 +37,12 @@
   <wsdl:message name="IAuctionClient_OldLots_OutputMessage">
     <wsdl:part name="parameters" element="tns:OldLotsResponse" />
   </wsdl:message>
+  <wsdl:message name="IAuctionClient_AllLots_InputMessage">
+    <wsdl:part name="parameters" element="tns:AllLots" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_AllLots_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AllLotsResponse" />
+  </wsdl:message>
   <wsdl:message name="IAuctionClient_FutureLots_InputMessage">
     <wsdl:part name="parameters" element="tns:FutureLots" />
   </wsdl:message>
@@ -85,6 +91,12 @@
   <wsdl:message name="IAuctionClient_AboutLot_OutputMessage">
     <wsdl:part name="parameters" element="tns:AboutLotResponse" />
   </wsdl:message>
+  <wsdl:message name="IAuctionClient_SingOut_InputMessage">
+    <wsdl:part name="parameters" element="tns:SingOut" />
+  </wsdl:message>
+  <wsdl:message name="IAuctionClient_SingOut_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SingOutResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAuctionClient">
     <wsdl:operation name="AddPerson">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuctionClient/AddPerson" message="tns:IAuctionClient_AddPerson_InputMessage" />
@@ -105,6 +117,10 @@
     <wsdl:operation name="OldLots">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuctionClient/OldLots" message="tns:IAuctionClient_OldLots_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAuctionClient/OldLotsResponse" message="tns:IAuctionClient_OldLots_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AllLots">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionClient/AllLots" message="tns:IAuctionClient_AllLots_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionClient/AllLotsResponse" message="tns:IAuctionClient_AllLots_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="FutureLots">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuctionClient/FutureLots" message="tns:IAuctionClient_FutureLots_InputMessage" />
@@ -137,6 +153,10 @@
     <wsdl:operation name="AboutLot">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuctionClient/AboutLot" message="tns:IAuctionClient_AboutLot_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAuctionClient/AboutLotResponse" message="tns:IAuctionClient_AboutLot_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SingOut">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAuctionClient/SingOut" message="tns:IAuctionClient_SingOut_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAuctionClient/SingOutResponse" message="tns:IAuctionClient_SingOut_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAuctionClient" type="tns:IAuctionClient">
@@ -179,6 +199,15 @@
     </wsdl:operation>
     <wsdl:operation name="OldLots">
       <soap:operation soapAction="http://tempuri.org/IAuctionClient/OldLots" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AllLots">
+      <soap:operation soapAction="http://tempuri.org/IAuctionClient/AllLots" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -251,6 +280,15 @@
     </wsdl:operation>
     <wsdl:operation name="AboutLot">
       <soap:operation soapAction="http://tempuri.org/IAuctionClient/AboutLot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SingOut">
+      <soap:operation soapAction="http://tempuri.org/IAuctionClient/SingOut" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
