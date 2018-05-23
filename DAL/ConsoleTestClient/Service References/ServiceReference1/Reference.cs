@@ -626,10 +626,10 @@ namespace ConsoleTestClient.ServiceReference1 {
         System.Threading.Tasks.Task SendMessageAsync(string Thema, string Message, ConsoleTestClient.ServiceReference1.Person to);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/ForgetPassword", ReplyAction="http://tempuri.org/IAuctionClient/ForgetPasswordResponse")]
-        void ForgetPassword(string email, string FirstName);
+        string ForgetPassword(string email, string FirstName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/ForgetPassword", ReplyAction="http://tempuri.org/IAuctionClient/ForgetPasswordResponse")]
-        System.Threading.Tasks.Task ForgetPasswordAsync(string email, string FirstName);
+        System.Threading.Tasks.Task<string> ForgetPasswordAsync(string email, string FirstName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/LotHistory", ReplyAction="http://tempuri.org/IAuctionClient/LotHistoryResponse")]
         string LotHistory(int LotId);
@@ -654,6 +654,24 @@ namespace ConsoleTestClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/SingOut", ReplyAction="http://tempuri.org/IAuctionClient/SingOutResponse")]
         System.Threading.Tasks.Task SingOutAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/ChangePassword", ReplyAction="http://tempuri.org/IAuctionClient/ChangePasswordResponse")]
+        string ChangePassword(string NewPassword);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/ChangePassword", ReplyAction="http://tempuri.org/IAuctionClient/ChangePasswordResponse")]
+        System.Threading.Tasks.Task<string> ChangePasswordAsync(string NewPassword);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/ChangeFirstName", ReplyAction="http://tempuri.org/IAuctionClient/ChangeFirstNameResponse")]
+        string ChangeFirstName(string Name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/ChangeFirstName", ReplyAction="http://tempuri.org/IAuctionClient/ChangeFirstNameResponse")]
+        System.Threading.Tasks.Task<string> ChangeFirstNameAsync(string Name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/ChangeSecondName", ReplyAction="http://tempuri.org/IAuctionClient/ChangeSecondNameResponse")]
+        string ChangeSecondName(string Name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuctionClient/ChangeSecondName", ReplyAction="http://tempuri.org/IAuctionClient/ChangeSecondNameResponse")]
+        System.Threading.Tasks.Task<string> ChangeSecondNameAsync(string Name);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -763,11 +781,11 @@ namespace ConsoleTestClient.ServiceReference1 {
             return base.Channel.SendMessageAsync(Thema, Message, to);
         }
         
-        public void ForgetPassword(string email, string FirstName) {
-            base.Channel.ForgetPassword(email, FirstName);
+        public string ForgetPassword(string email, string FirstName) {
+            return base.Channel.ForgetPassword(email, FirstName);
         }
         
-        public System.Threading.Tasks.Task ForgetPasswordAsync(string email, string FirstName) {
+        public System.Threading.Tasks.Task<string> ForgetPasswordAsync(string email, string FirstName) {
             return base.Channel.ForgetPasswordAsync(email, FirstName);
         }
         
@@ -801,6 +819,30 @@ namespace ConsoleTestClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task SingOutAsync() {
             return base.Channel.SingOutAsync();
+        }
+        
+        public string ChangePassword(string NewPassword) {
+            return base.Channel.ChangePassword(NewPassword);
+        }
+        
+        public System.Threading.Tasks.Task<string> ChangePasswordAsync(string NewPassword) {
+            return base.Channel.ChangePasswordAsync(NewPassword);
+        }
+        
+        public string ChangeFirstName(string Name) {
+            return base.Channel.ChangeFirstName(Name);
+        }
+        
+        public System.Threading.Tasks.Task<string> ChangeFirstNameAsync(string Name) {
+            return base.Channel.ChangeFirstNameAsync(Name);
+        }
+        
+        public string ChangeSecondName(string Name) {
+            return base.Channel.ChangeSecondName(Name);
+        }
+        
+        public System.Threading.Tasks.Task<string> ChangeSecondNameAsync(string Name) {
+            return base.Channel.ChangeSecondNameAsync(Name);
         }
     }
 }

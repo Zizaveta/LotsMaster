@@ -1,14 +1,15 @@
 namespace DAL
 {
-	using System;
-	using System.Collections.Generic;
-	using System.Data.Entity;
-	using System.Linq;
-	using System.IO;
-	using System.ComponentModel.DataAnnotations;
-	using System.ComponentModel.DataAnnotations.Schema;
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Linq;
+    using System.IO;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Runtime.Serialization;
 
-	public class AuctionContent : DbContext
+    public class AuctionContent : DbContext
 	{
 		public AuctionContent()
 			: base("name=Model")
@@ -19,7 +20,8 @@ namespace DAL
 		public virtual DbSet<LotHistory> History { get; set; }
         public virtual DbSet<Tell> Tells { get; set; }
 	}
-	public class Person
+    [DataContract]
+    public class Person
 	{
 		public Person()
 		{
@@ -27,20 +29,30 @@ namespace DAL
 			Histories = new List<LotHistory>();
             Tells = new List<Tell>();
 		}
-		public int Id { get; set; }
-		public string FirstName { get; set; }
-		public string SecondName { get; set; }
-		public bool Gender { get; set; }
-		public byte[] Image { get; set; }
-		public string Email { get; set; } // буде як логін
-		public string Password { get; set; }
-
-		public virtual ICollection<Lot> Lots { get; set; }
-		public virtual ICollection<LotHistory> Histories { get; set; }
+        [DataMember]
+        public int Id { get; set; }
+        [DataMember]
+        public string FirstName { get; set; }
+        [DataMember]
+        public string SecondName { get; set; }
+        [DataMember]
+        public bool Gender { get; set; }
+        [DataMember]
+        public byte[] Image { get; set; }
+        [DataMember]
+        public string Email { get; set; } // буде як логін
+        [DataMember]
+        public string Password { get; set; }
+        [DataMember]
+        public virtual ICollection<Lot> Lots { get; set; }
+        [DataMember]
+        public virtual ICollection<LotHistory> Histories { get; set; }
+        [DataMember]
         public virtual ICollection<Tell> Tells { get; set; }
 
     }
 
+    [DataContract]
     public class Lot
 	{
 		public Lot()
@@ -48,29 +60,47 @@ namespace DAL
 			History = new List<LotHistory>();
             Tells = new List<Tell>();
 		}
+        [DataMember]
 		public int Id { get; set; }
-		public string LotName { get; set; }
-		public string About { get; set; }
-		public int StartPrice { get; set; } // пропоную не гратися з копійками
-		public byte[] Photo { get; set; } // тут я не вкурсі як та фотка буде закідатися від клієнта на сервер, а потім по всіх клієнтах
-		public DateTime TimeStart { get; set; }
-		public DateTime TimeFinish { get; set; }
+        [DataMember]
+        public string LotName { get; set; }
+        [DataMember]
+        public string About { get; set; }
+        [DataMember]
+        public int StartPrice { get; set; } 
+        [DataMember]
+        public byte[] Photo { get; set; } 
+        [DataMember]
+        public DateTime TimeStart { get; set; }
+        [DataMember]
+        public DateTime TimeFinish { get; set; }
+        [DataMember]
         public virtual Person WhoSale { get; set; }
+        [DataMember]
         public virtual ICollection<LotHistory> History { get; set; }
+        [DataMember]
         public virtual ICollection<Tell> Tells { get; set; }
 	}
-
+    [DataContract]
     public class Tell
     {
+        [DataMember]
         public int Id { get; set; }
+        [DataMember]
         public virtual Person Person { get; set; }
+        [DataMember]
         public virtual Lot Lot { get; set; }
-    } 
-	public class LotHistory  // без цього не вийде обійтися 
+    }
+    [DataContract]
+    public class LotHistory  
 	{
-		public int Id { get; set; }
-		public virtual Lot Lot { get; set; }
-		public virtual Person Persson { get; set; }
-		public int Money { get; set; }
+        [DataMember]
+        public int Id { get; set; }
+        [DataMember]
+        public virtual Lot Lot { get; set; }
+        [DataMember]
+        public virtual Person Persson { get; set; }
+        [DataMember]
+        public int Money { get; set; }
 	}
 }

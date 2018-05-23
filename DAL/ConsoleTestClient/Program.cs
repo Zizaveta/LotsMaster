@@ -10,35 +10,32 @@ namespace ConsoleTestClient
     {
         static void Main(string[] args)
         {
-
+            AuctionClientClient client = null;
             try
             {
-                AuctionClientClient client = new AuctionClientClient();
+                client = new AuctionClientClient();
                 //Console.WriteLine(	 client.AddPerson("Liza", "Rengan", "miss.elizaveta.rengan@gmail.com", "12345678", false, null));
+                //client.ForgetPassword("miss.elizaveta.rengan@gmail.com", "Liza");
 
                 Console.WriteLine(client.Authorization("miss.elizaveta.rengan@gmail.com", "12345678"));
-                // Console.WriteLine(client.AddLot("Автомобіль ВАЗ413 ", "Стан хороший. 23л", 2200, new DateTime(2018, 06,18,21,52,0), new DateTime(2018, 06,21, 20,0,0), null ));
-
+                //Console.WriteLine(client.AddLot("Автомобіль ВАЗ413 ", "Стан хороший. 23л", 2200, new DateTime(2018, 06,18,21,52,0), new DateTime(2018, 06,21, 20,0,0), null ));
+                Console.WriteLine(client.ChangePassword("87654321"));
                 foreach (Lot elem in client.FutureLots())
                 {
                     Console.WriteLine(elem.LotName);
                 }
-                //foreach (Lot elem in client.NowLots())
-                //{
-                //    Console.WriteLine(elem);
-                //}
-                //foreach (Lot elem in client.OldLots())
-                //{
-                //    Console.WriteLine(elem);
-                //}
+
+                // Console.WriteLine(client.Bet(1, 5000));
+                //Console.WriteLine(client.TellMeAboutStartLot(1));
+                // Console.WriteLine(client.LotHistory(1));
+                // Console.WriteLine(client.LastBet(1));
+                //Console.WriteLine(client.AboutLot(1).LotName);
 
             }
             catch (Exception ex)
             {
-
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.ToString());
             }
-
         }
 
     }
