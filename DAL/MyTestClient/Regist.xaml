@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyTestClient"
         mc:Ignorable="d"
-        Title="Regist" Height="354.045" Width="435.662">
+        Title="Regist" Height="354.045" Width="439.399">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -23,7 +23,7 @@
             <Label Content="Gender" />
             <RadioButton Content="Male" x:Name="M" IsChecked="True" />
             <RadioButton Content="Female" />
-            <Button Content="Registr" Click="Button_Click" />
+            <Button Content="Registr" Click="Button_Click"/>
 
         </StackPanel>
         <StackPanel Grid.Column="1">

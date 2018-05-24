@@ -1,20 +1,18 @@
-﻿<Window x:Class="MyTestClient.MainWindow"
+﻿<Window x:Class="MyTestClient.ForgetPassw"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyTestClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="243.199" Width="488.971">
+        Title="ForgetPassw" Height="179.126" Width="323.786">
     <Grid>
         <StackPanel>
             <Label Content="Email" />
             <TextBox x:Name="mail" />
-            <Label Content="Password" />
-            <PasswordBox x:Name="pass" />
-            <Button Content="Enter" Margin="10" Click="Button_Click" />
-            <Button Content="Registr" Click="Button_Click_1" />
-            <Button Content="Forget password" Click="Button_Click_2" />
+            <Label Content="Name" />
+            <TextBox x:Name="name" />
+            <Button Content="Remind password" Click="Button_Click" />
         </StackPanel>
     </Grid>
 </Window>

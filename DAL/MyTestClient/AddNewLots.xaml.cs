@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,21 +15,18 @@ using System.Windows.Shapes;
 namespace MyTestClient
 {
     /// <summary>
-    /// Interaction logic for Regist.xaml
+    /// Логика взаимодействия для AddNewLots.xaml
     /// </summary>
-    public partial class Regist : Window
+    public partial class AddNewLots : Window
     {
-        public Regist()
+        public AddNewLots()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string str = MainWindow.client.AddPerson(FN.Text, SN.Text, mail.Text, pass.Password, M.IsChecked == true ? true : false, null);
-            MessageBox.Show(str);
-            if (str == "Peron add")
-                this.Close();   
+           MessageBox.Show( MainWindow.client.AddLot(Lname.Text, Labout.Text, Int32.Parse(LstartP.Text), Lstart.SelectedDate.Value, Lfinish.SelectedDate.Value, null));
         }
     }
 }

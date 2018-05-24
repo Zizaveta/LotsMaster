@@ -1,0 +1,30 @@
+﻿<Window x:Class="MyTestClient.AddNewLots"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyTestClient"
+        mc:Ignorable="d"
+        Title="AddNewLots" Height="311.082" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Label Content="Name" />
+            <TextBox x:Name="Lname" />
+            <Label Content="About Lot" />
+            <TextBox x:Name="Labout"/>
+            <Label Content="Start price" />
+            <TextBox x:Name="LstartP" />
+            <DatePicker x:Name="Lstart" />
+            <DatePicker x:Name="Lfinish" />
+            <Button Content="Add" Click="Button_Click" />
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <Image x:Name="Img" Width="200" Height="191" Margin="98,0" />
+            <Button Content="Load Image" />
+        </StackPanel>
+    </Grid>
+</Window>

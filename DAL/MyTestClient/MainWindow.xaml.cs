@@ -32,9 +32,22 @@ namespace MyTestClient
            string str =  client.Authorization(mail.Text, pass.Password);
             if (str == "Authorization")
             {
-                //
+                MenWindow w = new MenWindow();
+                w.ShowDialog();
             }
             else MessageBox.Show(str);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Regist w = new Regist();
+            w.ShowDialog();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            ForgetPassw w = new ForgetPassw();
+            w.ShowDialog();
         }
     }
 }

@@ -1,0 +1,48 @@
+﻿<Window x:Class="MyTestClient.MenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyTestClient"
+        mc:Ignorable="d"
+        Title="MenWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Button Content="Add lot" Click="Button_Click" />
+            <Button Content="Theme" />
+            <Button Content="Setting" />
+            <Button Content="Sing out" />
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <Expander Header="Show lots">
+                <StackPanel>
+                    <CheckBox Content="Old" />
+                    <CheckBox Content="Now" IsChecked="True"/>
+                    <CheckBox Content="New" IsChecked="True" />
+                </StackPanel>
+            </Expander>
+            <Expander Header="Sort by" >
+                <StackPanel>
+                    <RadioButton Content="Start price" />
+                    <RadioButton Content="TimeStart" IsChecked="True"/>
+                    <RadioButton Content="Name" />
+                </StackPanel>
+            </Expander>
+        </StackPanel>
+        <ListBox Grid.Column="2" x:Name="LOTS">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <Image Source="{Binding Name}" />
+                        <TextBox Text="{Binding Power}" IsEnabled="False" HorizontalContentAlignment="Center"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>
