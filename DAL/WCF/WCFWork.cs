@@ -49,6 +49,9 @@ namespace WCF
         string ChangeFirstName(string Name);
         [OperationContract]
         string ChangeSecondName(string Name);
+        [OperationContract]
+        List<LotHistory> GetLotHistory(int lot);
+
 
     }
 
@@ -67,7 +70,25 @@ namespace WCF
         public Lot AboutLot(int LotId)
         {
             Lot l = LotsWork.AboutLot(LotId);
-            return new Lot() { LotName = l.LotName, StartPrice = l.StartPrice, About = l.About, Id = l.Id, Photo = l.Photo, TimeFinish = l.TimeFinish, TimeStart = l.TimeStart };
+            return new Lot() { LotName = l.LotName, StartPrice = l.StartPrice, About = l.About, Id = l.Id, Photo = l.Photo, TimeFinish = l.TimeFinish, TimeStart = l.TimeStart};
+        }
+
+        public List<LotHistory> GetLotHistory(int lot)
+        {
+            try
+            {
+                List<LotHistory> l = new List<LotHistory>();
+                foreach(LotHistory elem in LotsWork.GetLotHistory(lot))
+                {
+                    l.Add(new LotHistory() { Id = elem.Id, Persson = new Person() { FirstName = elem.Persson.FirstName }, Money = elem.Money });
+                }
+                return l;
+            }
+            catch(Exception ex)
+            {
+                Log.Logger(ex.Message);
+                return null;
+            }
         }
 
         public string AddLot(string Name, string About, int StartPrice, DateTime Start, DateTime Finish, byte[] Img = null)
@@ -125,7 +146,7 @@ namespace WCF
                 List<Lot> Lots = new List<Lot>();
                 foreach (Lot lot in LotsReturn.FutureLots())
                 {
-                    Lots.Add(new Lot() { Id = lot.Id, LotName = lot.LotName, About = lot.About, Photo = lot.Photo, StartPrice = lot.StartPrice, TimeStart = lot.TimeStart, TimeFinish = lot.TimeFinish });
+                    Lots.Add(new Lot() { Id = lot.Id, LotName = lot.LotName, About = lot.About, Photo = lot.Photo, StartPrice = lot.StartPrice, TimeStart = lot.TimeStart, TimeFinish = lot.TimeFinish});
                 }
                 return Lots;
             }
@@ -223,6 +244,7 @@ namespace WCF
             }
             return "Password is change";
         }
+
         public string ChangeFirstName(string Name)
         {
             if (person == null)
@@ -236,6 +258,7 @@ namespace WCF
             }
             return "Name is change";
         }
+
         public string ChangeSecondName(string Name)
         {
             if (person == null)

@@ -247,7 +247,7 @@
             </Grid>
         </Grid>
 
-        <Grid x:Name="AutorizedWindow" >
+        <Grid x:Name="AutorizedWindow"  >
         <Grid.Background>
             <RadialGradientBrush>
                 <GradientStop Color="#FF838384" Offset="1"/>

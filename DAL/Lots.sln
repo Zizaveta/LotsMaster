@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.10
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{8A813D80-F8B4-49C1-A9D8-DBC747CEBAAA}"
 EndProject
@@ -35,6 +35,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddLot", "AddLot\AddLot.csproj", "{849398C2-08E3-495C-ADFF-A6D09CBD8AB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTestClient", "MyTestClient\MyTestClient.csproj", "{16120709-CEC7-4D68-8991-303959603B41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -98,6 +100,10 @@ Global
 		{849398C2-08E3-495C-ADFF-A6D09CBD8AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{849398C2-08E3-495C-ADFF-A6D09CBD8AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{849398C2-08E3-495C-ADFF-A6D09CBD8AB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16120709-CEC7-4D68-8991-303959603B41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16120709-CEC7-4D68-8991-303959603B41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16120709-CEC7-4D68-8991-303959603B41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16120709-CEC7-4D68-8991-303959603B41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

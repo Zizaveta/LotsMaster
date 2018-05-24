@@ -1,0 +1,34 @@
+﻿<Window x:Class="MyTestClient.Regist"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyTestClient"
+        mc:Ignorable="d"
+        Title="Regist" Height="354.045" Width="435.662">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Label Content="Email" />
+            <TextBox x:Name="mail" />
+            <Label Content="First Name" />
+            <TextBox x:Name="FN" />
+            <Label Content="Second name" />
+            <TextBox x:Name="SN" />
+            <Label Content="Password" />
+            <PasswordBox x:Name="pass" />
+            <Label Content="Gender" />
+            <RadioButton Content="Male" x:Name="M" IsChecked="True" />
+            <RadioButton Content="Female" />
+            <Button Content="Registr" Click="Button_Click" />
+
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <Image x:Name="Img" Width="200" Height="200" />
+            <Button Content="Load Image" />
+        </StackPanel>
+    </Grid>
+</Window>

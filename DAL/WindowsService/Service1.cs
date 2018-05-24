@@ -26,8 +26,7 @@ namespace WindowsService
 			{
 				sh = new ServiceHost(typeof(AuctionClient));
 				sh.Open();
-				Log.Logger("Host start work");
-				
+				Log.Logger("Host start work");				
 			}
 			catch(Exception ex)
 			{

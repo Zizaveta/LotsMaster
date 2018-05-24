@@ -242,8 +242,8 @@ namespace BLL
                     lot.WhoSale = p;
 					db.Lots.Add(lot);
 					db.SaveChanges();
-                    ServiceWork.TellMeAboutStartLot(lot);
-                    PersonWork.SendMessage(db.Persons.First(), "Auction", "Your lot is add in db", p);
+                    ServiceWork.TellAboutStartLot(lot);
+                    PersonWork.SendMessage(db.Persons.First(), "Auction", "Your lot " + lot.LotName + " is add. Wait for start)", p);
                     return true;
 				}
 			}
@@ -266,13 +266,13 @@ namespace BLL
                         return "Lot is finished";
 					if (db.Lots.FirstOrDefault(elem => elem.Id == lotId).TimeStart > DateTime.Now)
 						return "Lot is not start";
-                    if (LastBet(lotId) != 0 && LastBet(lotId)>money)
+                    if (LastBet(lotId) != 0 && LastBet(lotId)>=money)
                         return "Small bet";
                     LotHistory l = new LotHistory() { Persson = p, Money = money, Lot = db.Lots.FirstOrDefault(elem => elem.Id == lotId) };
                     db.History.Add(l);
                     db.Lots.First(elem => elem.Id == lotId).History.Add(l);
 					db.SaveChanges();
-                    return "Lot is create";
+                    return "You make Bet!)";
 				}
 			}
 			catch (Exception ex)
@@ -333,57 +333,108 @@ namespace BLL
                 return null;
             }
         }
-	}
-
-
-
-
-	public class ServiceWork
-	{
-        //треба ліст піпл
-        public static void TellMeAboutStartLot(Lot temp)
+        public static List<LotHistory> GetLotHistory(int lot)
         {
             try
             {
-                DispatcherTimer timer = new DispatcherTimer();
-                EventArgs ea = new EventArgs();
-                timer.Tick += Timer_Tick;
+                using (AuctionContent db = new AuctionContent())
+                {
+                    return db.Lots.FirstOrDefault(elem => elem.Id == lot).History.ToList();
+                }
+            }
+            catch(Exception ex)
+            {
+                Log.Logger(ex.Message);
+                return null;
+            }
+        }
+
+
+    }
+
+
+
+
+    public class ServiceWork
+    {
+        public static List<DispatcherTimer> timers = new List<DispatcherTimer>();
+        //треба ліст піпл
+        public static void TellAboutStartLot(Lot temp)
+        {
+            try
+            {
+                Log.Logger("Work ServiceWork.TellMeAboutStartLot");
+
+                timers.Add(new DispatcherTimer());
+
+                timers[timers.Count - 1].Tick += Timer_Tick;
+                timers[timers.Count - 1].Tag = temp.Id;
                 DateTime dt1 = DateTime.Now;
                 DateTime dt2 = temp.TimeStart;
                 TimeSpan ts = dt2 - dt1;
+
+                Log.Logger(ts.ToString());
+
                 //DateTime dt1 = temp.TimeStart;
                 //DateTime dt2 = temp.TimeFinish;
                 //TimeSpan ts = dt2 - dt1;
-                timer.Interval = ts;
-                timer.Start();
+                timers[timers.Count - 1].Interval = ts;
+                timers[timers.Count - 1].Start();
+                Log.Logger("Finish Work ServiceWork.TellMeAboutStartLot");
 
             }
             catch (Exception ex)
             {
                 Log.Logger(ex.Message);
+                Log.Logger("Exep ServiceWork.TellMeAboutStartLot");
             }
 
         }
         private static void Timer_Tick(object sender, EventArgs e)
         {
-            //пройтися циклом і повідомити людей
-            //for
-            //db.Lots.First(elem => elem.Id == lotId).TellPersonsAboutStart.Add(person);
-            ServiceWork.TellForPersonAboutStartLot();
+            Log.Logger("Work ServiceWork.Timer_Tick");
+            ServiceWork.TellForPersonAboutStartLot((int)((DispatcherTimer)sender).Tag);
             ((DispatcherTimer)sender).Stop();
+            timers.Remove(((DispatcherTimer)sender));
+            Log.Logger("Finish Work ServiceWork.Timer_Tick");
+
         }
-        public static void TellForPersonAboutStartLot()
+        public static void TellForPersonAboutStartLot(int lotId)
         {
-            Task.Run(() =>
+            Log.Logger("Work ServiceWork.TellForPersonAboutStartLot");
+            using (AuctionContent db = new AuctionContent())
             {
-                using (AuctionContent db = new AuctionContent())
+                foreach (Tell elem in db.Tells.Where(elem => elem.Lot.Id == lotId))
                 {
-                    foreach (Tell elem in db.Tells.Where(elem => elem.Lot.TimeStart >= DateTime.Now))
-                    {
-                            PersonWork.SendMessage(db.Persons.First(), "Lot is start", "We want to tell you about start lot  " + elem.Lot.LotName + " NOW!!!", elem.Person);
-                    }
+                    PersonWork.SendMessage(db.Persons.First(), "Lot is start", "We want to tell you about start lot  " + elem.Lot.LotName + " NOW!!! Hurry up make your bet)", elem.Person);
                 }
-            });
+            }
+            Log.Logger("Finish work ServiceWork.TellForPersonAboutStartLot");
         }
+
+        //public static void TellAll()
+        //{
+        //    try
+        //    {
+        //        using (AuctionContent db = new AuctionContent())
+        //        {
+        //            for(;;)
+        //            foreach (Lot elem in db.Lots.ToList())
+        //            {
+        //                if(elem.TimeStart.Year == DateTime.Now.Year && elem.TimeStart.Month == DateTime.Now.Month && elem.TimeStart.Day == DateTime.Now.Day && elem.TimeStart.Hour == DateTime.Now.Hour && elem.TimeStart.Minute == DateTime.Now.Minute)
+        //                {
+        //                    foreach (Tell elemTell in db.Tells.ToList())
+        //                    {
+        //                        PersonWork.SendMessage(db.Persons.First(), "Start lot", "Lot '" + elem.LotName + " is start NOW!!!", elemTell.Person);
+        //                    }
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        Log.Logger("Service exception: " + ex.Message);
+        //    }
+        //}
     }
 }

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/DAL" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/DAL" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfLot">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Lot" nillable="true" type="tns:Lot" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLot" nillable="true" type="tns:ArrayOfLot" />
+  <xs:complexType name="Lot">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="About" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="History" nillable="true" type="tns:ArrayOfLotHistory" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LotName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Photo" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="StartPrice" type="xs:int" />
+      <xs:element minOccurs="0" name="Tells" nillable="true" type="tns:ArrayOfTell" />
+      <xs:element minOccurs="0" name="TimeFinish" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TimeStart" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="WhoSale" nillable="true" type="tns:Person" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Lot" nillable="true" type="tns:Lot" />
+  <xs:complexType name="ArrayOfLotHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LotHistory" nillable="true" type="tns:LotHistory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLotHistory" nillable="true" type="tns:ArrayOfLotHistory" />
+  <xs:complexType name="LotHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Lot" nillable="true" type="tns:Lot" />
+      <xs:element minOccurs="0" name="Money" type="xs:int" />
+      <xs:element minOccurs="0" name="Persson" nillable="true" type="tns:Person" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LotHistory" nillable="true" type="tns:LotHistory" />
+  <xs:complexType name="Person">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Histories" nillable="true" type="tns:ArrayOfLotHistory" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Image" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Lots" nillable="true" type="tns:ArrayOfLot" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SecondName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tells" nillable="true" type="tns:ArrayOfTell" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Person" nillable="true" type="tns:Person" />
+  <xs:complexType name="ArrayOfTell">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Tell" nillable="true" type="tns:Tell" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTell" nillable="true" type="tns:ArrayOfTell" />
+  <xs:complexType name="Tell">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Lot" nillable="true" type="tns:Lot" />
+      <xs:element minOccurs="0" name="Person" nillable="true" type="tns:Person" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Tell" nillable="true" type="tns:Tell" />
+</xs:schema>
