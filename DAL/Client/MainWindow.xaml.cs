@@ -161,6 +161,7 @@ namespace Client
                 AutorizedWindow.Visibility = Visibility.Hidden;
                 ForgotPasswordWindow.Visibility = Visibility.Hidden;
                 SettingWindows.Visibility = Visibility.Hidden;
+                AddLotWindow.Visibility = Visibility.Hidden;
             }
             if (e.Key == Key.F2)
             {
@@ -169,6 +170,7 @@ namespace Client
                 AutorizedWindow.Visibility = Visibility.Hidden;
                 ForgotPasswordWindow.Visibility = Visibility.Hidden;
                 SettingWindows.Visibility = Visibility.Hidden;
+                AddLotWindow.Visibility = Visibility.Hidden;
             }
             if (e.Key == Key.F3)
             {
@@ -177,6 +179,7 @@ namespace Client
                 AutorizedWindow.Visibility = Visibility.Hidden;
                 ForgotPasswordWindow.Visibility = Visibility.Visible;
                 SettingWindows.Visibility = Visibility.Hidden;
+                AddLotWindow.Visibility = Visibility.Hidden;
             }
             if (e.Key == Key.F4)
             {
@@ -185,6 +188,7 @@ namespace Client
                 AutorizedWindow.Visibility = Visibility.Hidden;
                 ForgotPasswordWindow.Visibility = Visibility.Hidden;
                 SettingWindows.Visibility = Visibility.Visible;
+                AddLotWindow.Visibility = Visibility.Hidden;
                 LoadInfoAboutAllLots();
             }
             if (e.Key == Key.F5)
@@ -194,7 +198,18 @@ namespace Client
                 AutorizedWindow.Visibility = Visibility.Visible;
                 ForgotPasswordWindow.Visibility = Visibility.Hidden;
                 SettingWindows.Visibility = Visibility.Hidden;
+                AddLotWindow.Visibility = Visibility.Hidden;
             }
+            if (e.Key == Key.F6)
+            {
+                SingInWindow.Visibility = Visibility.Hidden;
+                SingUpWindow.Visibility = Visibility.Hidden;
+                AutorizedWindow.Visibility = Visibility.Hidden;
+                ForgotPasswordWindow.Visibility = Visibility.Hidden;
+                SettingWindows.Visibility = Visibility.Hidden;
+                AddLotWindow.Visibility = Visibility.Visible;
+            }
+
             if (e.Key == Key.Escape)
             {
                 if (ForgotPasswordWindow.Visibility == Visibility.Visible || SingUpWindow.Visibility == Visibility.Visible)
